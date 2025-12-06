@@ -1,0 +1,41 @@
+import 'package:get/get.dart';
+import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:b_soft_appliction/domain/repository/studymaterialrepo.dart';
+
+import '../../../domain/models/notesdata_model.dart';
+
+class Notelistvm extends GetxController {
+  final String topicId;
+  Notelistvm({required this.topicId});
+  @override
+  void onInit() {
+    super.onInit();
+    consolePrint('==================> Note Controller Initialized');
+    getNoteslist(topicId);
+  }
+
+  final api = Studymaterialrepo();
+  RxBool isloading = false.obs;
+  RxList<NoteModel> notelist = <NoteModel>[].obs;
+  Future<void> noteseen(String noteId) async {
+    await api.noteseen(noteId);
+  }
+
+  Future<void> getNoteslist(String topicId) async {
+    isloading.value = true;
+    consolePrint('==================> Note Controller Initialized');
+    try {
+      final response = await api.getnotes(topicId);
+      if (response['status'] == 'success') {
+        notelist.value = (response['data'] as List)
+            .map((e) => NoteModel.fromJson(e))
+            .toList();
+      }
+    } catch (e) {
+      consolePrint('==================> Note Controller Error', e.toString());
+    } finally {
+      isloading.value = false;
+      consolePrint('==================> Note Controller Completed');
+    }
+  }
+}
