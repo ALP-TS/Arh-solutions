@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/presentation/common/view/dashboard/dashboard.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/presentation/common/view/dashboard/dashboard.dart';
 import '../../../../app/config/routes/route_name.dart';
 import 'src/promocontent.dart';
 import 'src/promoimg.dart';

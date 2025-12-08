@@ -1,27 +1,39 @@
-import 'package:b_soft_appliction/core/utils/toast/toastmodel.dart';
+import 'package:arh_solution_app/core/utils/toast/toastmodel.dart';
 import 'package:toastification/toastification.dart';
 
 class ToastHelper {
-  static void successToast(context,
-      {required String title, required String desc}) {
+  static void successToast(
+    context, {
+    required String title,
+    required String desc,
+  }) {
     ToastificationType type = ToastificationType.success;
     showToastmodel(context, type, title, desc);
   }
 
-  static void infoToast(context,
-      {required String title, required String desc}) {
+  static void infoToast(
+    context, {
+    required String title,
+    required String desc,
+  }) {
     ToastificationType type = ToastificationType.info;
     showToastmodel(context, type, title, desc);
   }
 
-  static void errorToast(context,
-      {required String title, required String desc}) {
+  static void errorToast(
+    context, {
+    required String title,
+    required String desc,
+  }) {
     ToastificationType type = ToastificationType.error;
     showToastmodel(context, type, title, desc);
   }
 
-  static void warningToast(context,
-      {required String title, required String desc}) {
+  static void warningToast(
+    context, {
+    required String title,
+    required String desc,
+  }) {
     ToastificationType type = ToastificationType.warning;
     showToastmodel(context, type, title, desc);
   }

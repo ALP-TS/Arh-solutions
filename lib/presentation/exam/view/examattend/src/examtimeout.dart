@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/helpers/buttonhelper.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/helpers/buttonhelper.dart';
 
 import '../../../../../app/config/routes/route_name.dart';
 
@@ -22,23 +22,27 @@ class _ModernTimeoutPageState extends State<ModernTimeoutPage>
   @override
   void initState() {
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
 
     _controller = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 800),
     );
 
-    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.elasticOut),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 0.8,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut));
 
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
     _controller.forward();
   }
@@ -80,14 +84,15 @@ class _ModernTimeoutPageState extends State<ModernTimeoutPage>
                           icon: HugeIcons.strokeRoundedTimer02,
                           color: AppColors.secondary,
                           size: 100,
-                        )
+                        ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 30),
                   AppTextHelper.mainHead(
-                      text: 'You\'re out of time!',
-                      fontWeight: FontWeight.w600),
+                    text: 'You\'re out of time!',
+                    fontWeight: FontWeight.w600,
+                  ),
                   const SizedBox(height: 16),
                   AppTextHelper.caption(
                     text:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 
 import '../../../../../app/config/routes/route_name.dart';
 import '../../../../../app/config/theme/colors.dart';
@@ -10,25 +10,22 @@ import '../../../viewmodel/subjectvm.dart';
 
 class SubjectCard extends StatelessWidget {
   final Subject subject;
-  const SubjectCard({
-    super.key,
-    required this.subject,
-  });
+  const SubjectCard({super.key, required this.subject});
 
   @override
   Widget build(BuildContext context) {
     final subjectVM = Get.find<SubjectVM>();
     return Card(
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         onTap: () {
-          Get.toNamed(RouteName.topiclist, arguments: subject.subjectId
-              // arguments: subject
-              );
+          Get.toNamed(
+            RouteName.topiclist,
+            arguments: subject.subjectId,
+            // arguments: subject
+          );
           consolePrint('Navigating to Topic List Screen');
         },
         child: Padding(
@@ -39,15 +36,16 @@ class SubjectCard extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: AppColors.primary.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const HugeIcon(
-                        icon: HugeIcons.strokeRoundedBookOpen02,
-                        color: AppColors.primary,
-                      )),
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const HugeIcon(
+                      icon: HugeIcons.strokeRoundedBookOpen02,
+                      color: AppColors.primary,
+                    ),
+                  ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -71,16 +69,15 @@ class SubjectCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Icon(
-                    Icons.chevron_right,
-                    color: Colors.grey[400],
-                  ),
+                  Icon(Icons.chevron_right, color: Colors.grey[400]),
                 ],
               ),
               const SizedBox(height: 16),
               LinearProgressIndicator(
-                value: subjectVM
-                        .getpercent(subjectVM.subjectList.indexOf(subject)) /
+                value:
+                    subjectVM.getpercent(
+                      subjectVM.subjectList.indexOf(subject),
+                    ) /
                     100,
                 backgroundColor: Colors.grey[200],
                 color: AppColors.primary,

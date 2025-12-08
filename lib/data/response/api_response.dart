@@ -1,4 +1,4 @@
-import 'package:b_soft_appliction/data/response/status.dart';
+import 'package:arh_solution_app/data/response/status.dart';
 
 class ApiResponse<T> {
   Status? status;

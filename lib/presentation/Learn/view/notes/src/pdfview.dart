@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class PdfView extends StatelessWidget {

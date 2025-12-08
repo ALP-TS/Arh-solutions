@@ -1,6 +1,6 @@
 // import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthPreferences {

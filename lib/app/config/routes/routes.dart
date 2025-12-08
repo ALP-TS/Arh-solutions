@@ -1,7 +1,7 @@
-import 'package:b_soft_appliction/presentation/common/view/coursedetailpage/course_deatail_page.dart';
+import 'package:arh_solution_app/presentation/common/view/coursedetailpage/course_deatail_page.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/routes/route_name.dart';
-import 'package:b_soft_appliction/presentation/common/view/dashboard/dashboard.dart';
+import 'package:arh_solution_app/app/config/routes/route_name.dart';
+import 'package:arh_solution_app/presentation/common/view/dashboard/dashboard.dart';
 import '../../../presentation/Learn/bindings/audiolistbdng.dart';
 import '../../../presentation/Learn/bindings/coursebinding.dart';
 import '../../../presentation/Learn/bindings/notelistbdng.dart';
@@ -22,10 +22,10 @@ import '../../../presentation/settings/bndings/profilebdng.dart';
 import '../../../presentation/settings/view/settingspageui.dart';
 import 'routig_widget.dart';
 //*====================> Screen Imports
-import 'package:b_soft_appliction/presentation/common/view/welomescreen/welcomesreen.dart';
+import 'package:arh_solution_app/presentation/common/view/welomescreen/welcomesreen.dart';
 import '../../../presentation/exam/view/examattend/src/examinstruction.dart';
 import '../../../presentation/exam/view/examattend/src/examviolation.dart';
-import 'package:b_soft_appliction/presentation/exam/view/examlist/examlist.dart';
+import 'package:arh_solution_app/presentation/exam/view/examlist/examlist.dart';
 import '../../../presentation/common/view/slashscreen/splashscreen.dart';
 import '../../../presentation/exam/view/examattend/src/examtimeout.dart';
 import '../../../presentation/exam/view/examattend/examattend.dart';
@@ -69,7 +69,7 @@ class AppRoutes {
     getPage(RouteName.examinstruction, const ExamInstructions(), [
       Examattendbdng(),
     ]),
-     
+
     getPage(RouteName.exampage, const ExamScreen(), []),
     getPage(RouteName.coursedetailpage, const CourseDetailsPage(), []),
     getPage(RouteName.timeout, ModernTimeoutPage(), []),

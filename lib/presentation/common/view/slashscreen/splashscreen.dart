@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
-import 'package:b_soft_appliction/packages/src/Alp_animated_splashscreen.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
+import 'package:arh_solution_app/packages/src/Alp_animated_splashscreen.dart';
 
 import '../../viewmodel/splashvm.dart';
 

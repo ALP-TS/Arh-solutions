@@ -1,5 +1,5 @@
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/data/network/network_api_services.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/data/network/network_api_services.dart';
 
 import '../../AuthPref.dart';
 import '../endpoints/appendpoints.dart';
@@ -9,14 +9,17 @@ class Zoomrepo {
 
   Future<dynamic> zoommeetinglist() async {
     consolePrint(
-        '======================>In Zoom Repo (function zoommeetinglist) Started');
+      '======================>In Zoom Repo (function zoommeetinglist) Started',
+    );
     final String? classId = await AuthPreferences.getclassId();
     consolePrint('url ${AppEndpoints.zoommeetlist + classId!}');
 
-    dynamic response =
-        await _apiService.getApi(AppEndpoints.zoommeetlist + classId);
+    dynamic response = await _apiService.getApi(
+      AppEndpoints.zoommeetlist + classId,
+    );
     consolePrint(
-        '======================>In Zoom Repo (function zoommeetinglist) Completed');
+      '======================>In Zoom Repo (function zoommeetinglist) Completed',
+    );
     return response;
   }
 }

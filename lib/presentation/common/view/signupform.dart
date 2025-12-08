@@ -1,13 +1,13 @@
-import 'package:b_soft_appliction/presentation/common/viewmodel/sign_upVm.dart';
+import 'package:arh_solution_app/presentation/common/viewmodel/sign_upVm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/app/Di/dimensions.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
-import 'package:b_soft_appliction/presentation/common/viewmodel/formVm.dart';
+import 'package:arh_solution_app/app/Di/dimensions.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/presentation/common/viewmodel/formVm.dart';
 
 class FormView extends StatelessWidget {
   const FormView({super.key});

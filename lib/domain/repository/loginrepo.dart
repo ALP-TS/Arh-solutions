@@ -1,6 +1,6 @@
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/data/network/network_api_services.dart';
-import 'package:b_soft_appliction/domain/endpoints/appendpoints.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/data/network/network_api_services.dart';
+import 'package:arh_solution_app/domain/endpoints/appendpoints.dart';
 
 import '../../AuthPref.dart';
 
@@ -9,36 +9,41 @@ class LoginRepo {
 
   Future<dynamic> loginApi(dynamic data) async {
     consolePrint(
-        '======================>In login Repo (function loginApi) Started');
+      '======================>In login Repo (function loginApi) Started',
+    );
     consolePrint('url ${AppEndpoints.login}');
     dynamic response = await _apiService.postApi(data, AppEndpoints.login);
     consolePrint(
-        '======================>In login Repo (function loginApi) Completed');
+      '======================>In login Repo (function loginApi) Completed',
+    );
     return response;
   }
 
   Future<dynamic> storedeviceId(String deviceID, userId) async {
-    var data = {
-      'user_id': userId,
-      'device_id': deviceID,
-    };
+    var data = {'user_id': userId, 'device_id': deviceID};
     consolePrint(
-        '======================>In login Repo (function storedeviceId) Started');
+      '======================>In login Repo (function storedeviceId) Started',
+    );
     consolePrint('url ${AppEndpoints.updatedeviceId}');
-    dynamic response =
-        await _apiService.postApi(data, AppEndpoints.updatedeviceId);
+    dynamic response = await _apiService.postApi(
+      data,
+      AppEndpoints.updatedeviceId,
+    );
     consolePrint(
-        '======================>In login Repo (function storedeviceId) Completed');
+      '======================>In login Repo (function storedeviceId) Completed',
+    );
     return response;
   }
 
   Future<dynamic> getloginmode() async {
     consolePrint(
-        '======================>In login Repo (function getloginmode) Started');
+      '======================>In login Repo (function getloginmode) Started',
+    );
     consolePrint('url ${AppEndpoints.getloginmode}');
     dynamic response = await _apiService.getApi(AppEndpoints.getloginmode);
     consolePrint(
-        '======================>In login Repo (function getloginmode) Completed');
+      '======================>In login Repo (function getloginmode) Completed',
+    );
     return response;
   }
 }

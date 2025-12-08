@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/app/Di/dimensions.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/Di/dimensions.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 
 class IconwithButton extends StatelessWidget {
   final String text;
   final IconData icon;
   final bool isLoading;
-  const IconwithButton(
-      {super.key,
-      required this.text,
-      required this.isLoading,
-      required this.icon});
+  const IconwithButton({
+    super.key,
+    required this.text,
+    required this.isLoading,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +22,12 @@ class IconwithButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primary,
         borderRadius: BorderRadius.circular(30),
-        
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: AppColors.white,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
+          Icon(icon, color: AppColors.white),
+          const SizedBox(width: 10),
           AppTextHelper.button(text: text, fcolor: AppColors.white),
         ],
       ),

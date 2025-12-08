@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:b_soft_appliction/app/Di/dimensions.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/Di/dimensions.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 import 'animated_bar.dart';
 import 'menu.dart';
 
 class BtmNavItem extends StatelessWidget {
-  const BtmNavItem(
-      {super.key,
-      required this.navBar,
-      required this.press,
-      required this.riveOnInit,
-      required this.selectedNav,
-      required this.title});
+  const BtmNavItem({
+    super.key,
+    required this.navBar,
+    required this.press,
+    required this.riveOnInit,
+    required this.selectedNav,
+    required this.title,
+  });
 
   final Menu navBar;
   final VoidCallback press;

@@ -1,4 +1,4 @@
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 
 import '../../AuthPref.dart';
 import '../../data/network/network_api_services.dart';
@@ -8,22 +8,27 @@ class Studymaterialrepo {
   final _apiService = NetworkApiServices();
   Future<dynamic> getVideos(String topicId) async {
     consolePrint(
-        '======================>In Studymaterialrepo (function getVideos) Started');
+      '======================>In Studymaterialrepo (function getVideos) Started',
+    );
     consolePrint('url ${AppEndpoints.videos + topicId}');
     dynamic response = await _apiService.getApi(AppEndpoints.videos + topicId);
     consolePrint(
-        '======================>In Studymaterialrepo(function getVideos) Completed');
+      '======================>In Studymaterialrepo(function getVideos) Completed',
+    );
     return response;
   }
 
   Future<dynamic> getnotes(String topicId) async {
     consolePrint(
-        '======================>In Studymaterialrepo (function getnotes) Started');
+      '======================>In Studymaterialrepo (function getnotes) Started',
+    );
     consolePrint('url ${AppEndpoints.getNotes(topicId)}');
-    dynamic response =
-        await _apiService.getApi(await AppEndpoints.getNotes(topicId));
+    dynamic response = await _apiService.getApi(
+      await AppEndpoints.getNotes(topicId),
+    );
     consolePrint(
-        '======================>In Studymaterialrepo (function getnotes) Completed');
+      '======================>In Studymaterialrepo (function getnotes) Completed',
+    );
     return response;
   }
 
@@ -33,11 +38,13 @@ class Studymaterialrepo {
       'user_id': await AuthPreferences.getUserId(),
     };
     consolePrint(
-        '======================>In Studymaterialrepo (function getnotes) Started');
+      '======================>In Studymaterialrepo (function getnotes) Started',
+    );
     consolePrint('url ${AppEndpoints.videoseen}');
     dynamic response = await _apiService.postApi(data, AppEndpoints.videoseen);
     consolePrint(
-        '======================>In Studymaterialrepo (function getnotes) Completed');
+      '======================>In Studymaterialrepo (function getnotes) Completed',
+    );
 
     if (response['status'] == 'success') {
       return true;
@@ -52,11 +59,13 @@ class Studymaterialrepo {
       'user_id': await AuthPreferences.getUserId(),
     };
     consolePrint(
-        '======================>In Studymaterialrepo (function noteseenApi) Started');
+      '======================>In Studymaterialrepo (function noteseenApi) Started',
+    );
     consolePrint('url ${AppEndpoints.noteseen}');
     dynamic response = await _apiService.postApi(data, AppEndpoints.noteseen);
     consolePrint(
-        '======================>In Studymaterialrepo (function noteseenApi) Completed');
+      '======================>In Studymaterialrepo (function noteseenApi) Completed',
+    );
     if (response['status'] == 'success') {
       return true;
     } else {

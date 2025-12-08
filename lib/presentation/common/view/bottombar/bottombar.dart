@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/core/helpers/dialougehelper.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/core/helpers/dialougehelper.dart';
 import '../../../../app/Di/dimensions.dart';
 import 'package:flutter/material.dart';
 import '../../../settings/viewmodel/profilevm.dart';
@@ -43,12 +43,13 @@ class _BottomBarState extends State<BottomBar>
 
   @override
   void initState() {
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 200),
-    )..addListener(() {
-        setState(() {});
-      });
+    _animationController =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 200),
+        )..addListener(() {
+          setState(() {});
+        });
     scalAnimation = Tween<double>(begin: 1, end: 0.8).animate(
       CurvedAnimation(
         parent: _animationController,

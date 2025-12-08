@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 
 //?=============> Manages the application's network connectivity status.
 
@@ -12,23 +12,20 @@ class NetworkController extends GetxController {
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
   //?==================> A set of route names that are allowed to function offline
-  final Set<String> _offlineAccessibleRoutes = {
-    "/DownloadedVideosScreen",
-  };
+  final Set<String> _offlineAccessibleRoutes = {"/DownloadedVideosScreen"};
 
   @override
   void onInit() {
     super.onInit();
     _initializeConnectivityListener();
     _checkInitialConnection();
-    consolePrint(
-      '==================> Network Controller Initialized',
-    );
+    consolePrint('==================> Network Controller Initialized');
   }
 
   void _initializeConnectivityListener() {
-    _connectivitySubscription =
-        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+    _connectivitySubscription = _connectivity.onConnectivityChanged.listen(
+      _updateConnectionStatus,
+    );
   }
 
   Future<void> _checkInitialConnection() async {
@@ -58,9 +55,7 @@ class NetworkController extends GetxController {
   @override
   void onClose() {
     _connectivitySubscription.cancel();
-    consolePrint(
-      '==================> Network Controller Closed',
-    );
+    consolePrint('==================> Network Controller Closed');
     super.onClose();
   }
 }

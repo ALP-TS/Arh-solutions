@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/app/config/theme/textstyle.dart';
+import 'package:arh_solution_app/app/config/theme/textstyle.dart';
 
 class AppTextHelper {
   static Text mainHead({
@@ -22,13 +22,14 @@ class AppTextHelper {
     );
   }
 
-  static Text subHead(
-      {required String text,
-      Color fcolor = Colors.black,
-      FontWeight fontWeight = FontWeight.normal,
-      TextAlign? textAlign,
-      TextOverflow? overflow,
-      int? maxLines}) {
+  static Text subHead({
+    required String text,
+    Color fcolor = Colors.black,
+    FontWeight fontWeight = FontWeight.normal,
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    int? maxLines,
+  }) {
     return Text(
       text,
       style: AppTextStyles.subHeadstyle(fcolor: fcolor, fontWeight: fontWeight),
@@ -38,13 +39,14 @@ class AppTextHelper {
     );
   }
 
-  static Text caption(
-      {required String text,
-      Color fcolor = Colors.black,
-      FontWeight fontWeight = FontWeight.normal,
-      TextAlign? textAlign,
-      TextOverflow? overflow,
-      int? maxLines}) {
+  static Text caption({
+    required String text,
+    Color fcolor = Colors.black,
+    FontWeight fontWeight = FontWeight.normal,
+    TextAlign? textAlign,
+    TextOverflow? overflow,
+    int? maxLines,
+  }) {
     return Text(
       text,
       style: AppTextStyles.captionstyle(fcolor: fcolor, fontWeight: fontWeight),
@@ -54,13 +56,14 @@ class AppTextHelper {
     );
   }
 
-  static Text button(
-      {required String text,
-      Color fcolor = Colors.black,
-      FontWeight fontWeight = FontWeight.normal,
-      TextAlign? textAlign,
-      TextOverflow? overflow = TextOverflow.ellipsis,
-      int? maxLines}) {
+  static Text button({
+    required String text,
+    Color fcolor = Colors.black,
+    FontWeight fontWeight = FontWeight.normal,
+    TextAlign? textAlign,
+    TextOverflow? overflow = TextOverflow.ellipsis,
+    int? maxLines,
+  }) {
     return Text(
       text,
       style: AppTextStyles.subHeadstyle(fcolor: fcolor, fontWeight: fontWeight),

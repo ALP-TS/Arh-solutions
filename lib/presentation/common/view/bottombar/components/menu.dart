@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/AuthPref.dart';
-import 'package:b_soft_appliction/core/res/assets/rive_assets.dart';
-import 'package:b_soft_appliction/presentation/common/view/dashboard/dashboard.dart';
+import 'package:arh_solution_app/AuthPref.dart';
+import 'package:arh_solution_app/core/res/assets/rive_assets.dart';
+import 'package:arh_solution_app/presentation/common/view/dashboard/dashboard.dart';
 import 'package:rive/rive.dart';
 
 import '../../../../../app/config/routes/route_name.dart';

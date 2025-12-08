@@ -1,5 +1,5 @@
-import 'package:b_soft_appliction/AuthPref.dart';
-import 'package:b_soft_appliction/core/constant/constants.dart';
+import 'package:arh_solution_app/AuthPref.dart';
+import 'package:arh_solution_app/core/constant/constants.dart';
 
 class AppEndpoints {
   static Future<String> getSubjects() async {
@@ -7,7 +7,7 @@ class AppEndpoints {
     String? stuId = await AuthPreferences.getstuId();
     return '${Constants.appBaseUrl}get_subject/$classId/$stuId';
   }
-  
+
   static Future<String> getTopics(String subId) async {
     String? stuId = await AuthPreferences.getstuId();
     return '${Constants.appBaseUrl}get_topic/$subId/$stuId';
@@ -16,6 +16,7 @@ class AppEndpoints {
   static Future<String> getNotes(String topicId) async {
     return '${Constants.appBaseUrl}get_table_muti_row?tname=notes&where=topic_id&value=$topicId';
   }
+
   static Future<String> getSingleCoursedetails(classId) async {
     // String? classId = await AuthPreferences.getclassId();
     print('classId $classId');
@@ -34,8 +35,10 @@ class AppEndpoints {
     String? userID = await AuthPreferences.getUserId();
     return '${Constants.appBaseUrl}ProfileData/$userID';
   }
+
   static const String signUp = "${Constants.appBaseUrl}sign_up";
-  static const String getCoursesForSignup = "${Constants.appBaseUrl}get_courses_for_signup";
+  static const String getCoursesForSignup =
+      "${Constants.appBaseUrl}get_courses_for_signup";
   static const String login = '${Constants.appBaseUrl}user_login';
   static const String examlist = '${Constants.appBaseUrl}view_exam_list';
   static const String questions = '${Constants.appBaseUrl}exam_start';

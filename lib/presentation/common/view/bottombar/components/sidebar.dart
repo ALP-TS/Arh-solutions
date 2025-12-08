@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
 // import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
 // import '../../../../profile/viewmodel/profilevm.dart';
 import '../../../../../AuthPref.dart';
 import '../../../../settings/viewmodel/profilevm.dart';
@@ -33,9 +33,7 @@ class _SideBarState extends State<SideBar> {
             fit: BoxFit.cover,
           ),
           color: Color(0xFF17203A),
-          borderRadius: BorderRadius.all(
-            Radius.circular(30),
-          ),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
         child: DefaultTextStyle(
           style: const TextStyle(color: Colors.white),
@@ -49,22 +47,21 @@ class _SideBarState extends State<SideBar> {
                 // const InfoCardShimmer(),
                 // :
                 InfoCard(
-                    name: profileVM.profileData!.name,
-                    // profileVM.profile.value!.name,
-                    bio: profileVM.profileData!.studentClass,
-                    // profileVM.profile.value!.className,
-                    image: ''
-                    // profileVM.profile.value!.profile,
-                    ),
+                  name: profileVM.profileData!.name,
+                  // profileVM.profile.value!.name,
+                  bio: profileVM.profileData!.studentClass,
+                  // profileVM.profile.value!.className,
+                  image: '',
+                  // profileVM.profile.value!.profile,
+                ),
                 // ),
                 Padding(
                   padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),
                   child: Text(
                     "Browse".toUpperCase(),
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: Colors.white70),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium!.copyWith(color: Colors.white70),
                   ),
                 ),
                 ...sidebarMenus.map(

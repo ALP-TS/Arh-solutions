@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 import '../../../app/Di/dimensions.dart';
 import '../../../core/res/assets/images.dart';
 
@@ -36,7 +36,7 @@ class Emptypage extends StatelessWidget {
                     blurRadius: 20,
                     spreadRadius: 2,
                     offset: const Offset(0, 10),
-                  )
+                  ),
                 ],
               ),
               child: Image.asset(
@@ -51,10 +51,7 @@ class Emptypage extends StatelessWidget {
             // Title with gradient text for modern look
             ShaderMask(
               shaderCallback: (bounds) => const LinearGradient(
-                colors: [
-                  AppColors.primary,
-                  AppColors.secondary,
-                ],
+                colors: [AppColors.primary, AppColors.secondary],
               ).createShader(bounds),
               child: AppTextHelper.mainHead(
                 text: title ?? 'No Data Found',
@@ -77,6 +74,7 @@ class Emptypage extends StatelessWidget {
               text: subtitle ?? 'There are no data available ',
               fontWeight: FontWeight.normal,
             ),
+
             // Text(
             //   subtitle ?? 'There are no data available ',
             //   style: theme.textTheme.bodyMedium?.copyWith(
@@ -84,7 +82,6 @@ class Emptypage extends StatelessWidget {
             //   ),
             //   textAlign: TextAlign.center,
             // ),
-
             if (buttonText != null) ...[
               SizedBox(height: Di.screenWidth * 0.08),
 
@@ -100,17 +97,14 @@ class Emptypage extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
                     gradient: const LinearGradient(
-                      colors: [
-                        AppColors.primary,
-                        AppColors.secondary,
-                      ],
+                      colors: [AppColors.primary, AppColors.secondary],
                     ),
                     boxShadow: [
                       BoxShadow(
                         color: AppColors.primary.withOpacity(0.3),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
-                      )
+                      ),
                     ],
                   ),
                   child: AppTextHelper.button(

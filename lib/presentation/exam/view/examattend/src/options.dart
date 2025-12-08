@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/presentation/exam/viewmodel/examattendvm.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/presentation/exam/viewmodel/examattendvm.dart';
 
 import '../../../../../app/config/theme/colors.dart';
 import '../../../../../app/config/theme/text.dart';
 
 class OptionsView extends StatelessWidget {
-  OptionsView({
-    super.key,
-    required this.options,
-  });
+  OptionsView({super.key, required this.options});
   final List<String> options;
   final examattendVM = Get.find<Examattendvm>();
 
@@ -22,16 +19,32 @@ class OptionsView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           children: [
             _buildOption(
-                0, 'A', options[0], examattendVM.selectedoption.value == 'A'),
+              0,
+              'A',
+              options[0],
+              examattendVM.selectedoption.value == 'A',
+            ),
             const SizedBox(height: 12),
             _buildOption(
-                1, 'B', options[1], examattendVM.selectedoption.value == 'B'),
+              1,
+              'B',
+              options[1],
+              examattendVM.selectedoption.value == 'B',
+            ),
             const SizedBox(height: 12),
             _buildOption(
-                2, 'C', options[2], examattendVM.selectedoption.value == 'C'),
+              2,
+              'C',
+              options[2],
+              examattendVM.selectedoption.value == 'C',
+            ),
             const SizedBox(height: 12),
             _buildOption(
-                3, 'D', options[3], examattendVM.selectedoption.value == 'D'),
+              3,
+              'D',
+              options[3],
+              examattendVM.selectedoption.value == 'D',
+            ),
           ],
         ),
       ),
@@ -80,8 +93,9 @@ class OptionsView extends StatelessWidget {
                 color: isSelected ? AppColors.primary : Colors.white,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color:
-                      isSelected ? AppColors.primary : const Color(0xFFD1D5DB),
+                  color: isSelected
+                      ? AppColors.primary
+                      : const Color(0xFFD1D5DB),
                   width: 1.5,
                 ),
               ),

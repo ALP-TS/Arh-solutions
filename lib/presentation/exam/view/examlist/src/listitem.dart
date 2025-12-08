@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 
 import '../../../../../app/config/theme/colors.dart';
 import '../../../../../domain/models/examlist_model.dart';
@@ -17,9 +17,7 @@ class ExamCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
@@ -74,30 +72,34 @@ class ExamCard extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Row(children: [
-                        Container(
-                          child: Text(
-                            'Duration: ${_formatDate(exam.duration)}',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Color(0xFF6B7280),
-                              fontWeight: FontWeight.w500,
+                      Row(
+                        children: [
+                          Container(
+                            child: Text(
+                              'Duration: ${_formatDate(exam.duration)}',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Color(0xFF6B7280),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
-                        )
-                      ]),
-                      Row(children: [
-                        Container(
-                          child: Text(
-                            'Qus Count: ${_formatDate(exam.qusCount)}',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              color: Color(0xFF6B7280),
-                              fontWeight: FontWeight.w500,
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            child: Text(
+                              'Qus Count: ${_formatDate(exam.qusCount)}',
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Color(0xFF6B7280),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
-                        )
-                      ]),
+                        ],
+                      ),
                     ],
                   ),
                   // Row(
@@ -184,22 +186,23 @@ class ExamCard extends StatelessWidget {
         ],
       ),
       child: ElevatedButton(
-          onPressed: () {
-            onTap();
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.transparent,
-            shadowColor: Colors.transparent,
-            // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
+        onPressed: () {
+          onTap();
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
           ),
-          child: AppTextHelper.button(
-            text: exam.button,
-            fcolor: AppColors.white,
-            fontWeight: FontWeight.bold,
-          )),
+        ),
+        child: AppTextHelper.button(
+          text: exam.button,
+          fcolor: AppColors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
   }
 

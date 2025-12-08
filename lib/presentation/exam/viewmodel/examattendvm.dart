@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/helpers/dialougehelper.dart';
-import 'package:b_soft_appliction/core/helpers/toasthelper.dart';
+import 'package:arh_solution_app/core/helpers/dialougehelper.dart';
+import 'package:arh_solution_app/core/helpers/toasthelper.dart';
 
 import '../../../app/config/routes/route_name.dart';
 import '../../../core/utils/debuprint.dart';
@@ -16,9 +16,7 @@ class Examattendvm extends GetxController {
   void onInit() {
     super.onInit();
     getQuestions(examid);
-    consolePrint(
-      '==================> Exam Attend Controller Initialized',
-    );
+    consolePrint('==================> Exam Attend Controller Initialized');
   }
 
   final api = Examrepo();
@@ -41,7 +39,8 @@ class Examattendvm extends GetxController {
 
   Future<void> nextquestion(String qusId, String ans) async {
     consolePrint(
-        'Current Index ${currentindex.value}, ${questions.length - 1}');
+      'Current Index ${currentindex.value}, ${questions.length - 1}',
+    );
     if (currentindex.value < questions.length - 1) {
       final status = await submitanswer(qusId, ans);
       if (status) {
@@ -54,8 +53,11 @@ class Examattendvm extends GetxController {
       final status = await submitanswer(qusId, ans);
       if (status) {
         await api.submitexam(examid);
-        ToastHelper.successToast(Get.context,
-            title: 'Success', desc: 'Exam submitted successfully');
+        ToastHelper.successToast(
+          Get.context,
+          title: 'Success',
+          desc: 'Exam submitted successfully',
+        );
         Get.offNamedUntil(
           RouteName.examresult,
           ModalRoute.withName(RouteName.navbar),
@@ -91,39 +93,46 @@ class Examattendvm extends GetxController {
 
   Future<bool> submitanswer(String qusId, String ans) async {
     consolePrint(
-        '==================>In Exam Attend VM (function submitanswer) Initialized');
+      '==================>In Exam Attend VM (function submitanswer) Initialized',
+    );
     try {
       final response = await api.submitanswer(qusId, ans, examid);
       return true;
     } catch (e) {
       consolePrint(
-          '==================> Exam Attend VM (function submitanswer) Error',
-          e.toString());
+        '==================> Exam Attend VM (function submitanswer) Error',
+        e.toString(),
+      );
       return false;
     } finally {
       consolePrint(
-          '==================> Exam Attend VM (function submitanswer) Completed');
+        '==================> Exam Attend VM (function submitanswer) Completed',
+      );
     }
   }
 
   Future<void> getQuestions(String examid) async {
     consolePrint(
-        '==================>In Exam Attend VM (function getQuestions) Initialized');
+      '==================>In Exam Attend VM (function getQuestions) Initialized',
+    );
     try {
       isloading.value = true;
       final response = await api.questions(examid);
-      questions.value =
-          (response['data'] as List).map((e) => Question.fromJson(e)).toList();
+      questions.value = (response['data'] as List)
+          .map((e) => Question.fromJson(e))
+          .toList();
       examData.value = ExamDataModel.fromJson(response['exam']);
       // questions.assignAll(response.map((json) => Question.fromJson(json)).toList());
     } catch (e) {
       consolePrint(
-          '==================> Exam Attend VM (function getQuestions) Error',
-          e.toString());
+        '==================> Exam Attend VM (function getQuestions) Error',
+        e.toString(),
+      );
     } finally {
       isloading.value = false;
       consolePrint(
-          '==================> Exam Attend VM (function getQuestions) Completed');
+        '==================> Exam Attend VM (function getQuestions) Completed',
+      );
     }
   }
 

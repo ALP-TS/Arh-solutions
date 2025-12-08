@@ -1,7 +1,7 @@
 // import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
 
-import 'package:b_soft_appliction/domain/models/coursemodel.dart';
-import 'package:b_soft_appliction/domain/models/signup_model.dart';
+import 'package:arh_solution_app/domain/models/coursemodel.dart';
+import 'package:arh_solution_app/domain/models/signup_model.dart';
 import 'package:get/get.dart';
 
 import '../../../core/utils/debuprint.dart';
@@ -29,9 +29,7 @@ class CourseDetailsController extends GetxController {
 
   Future<void> loadCourseData() async {
     isLoading.value = true;
-    consolePrint(
-      '==================> Course Detail Controller Initialized',
-    );
+    consolePrint('==================> Course Detail Controller Initialized');
     try {
       final response = await api.getsinglecourse(courseId);
       courseData.value = Courseresponse.fromJson(response['data']);
@@ -45,9 +43,7 @@ class CourseDetailsController extends GetxController {
       );
     } finally {
       isLoading.value = false;
-      consolePrint(
-        '==================> Course Detail Controller Completed',
-      );
+      consolePrint('==================> Course Detail Controller Completed');
     }
     // isLoading.value = true;
 

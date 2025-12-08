@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:b_soft_appliction/app/Di/dimensions.dart';
-import 'package:b_soft_appliction/app/config/routes/route_name.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
+import 'package:arh_solution_app/app/Di/dimensions.dart';
+import 'package:arh_solution_app/app/config/routes/route_name.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -63,76 +63,76 @@ class Dashboardappbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-        backgroundColor: AppColors.primary,
-        automaticallyImplyLeading: false,
-        elevation: 0,
-        title: isloggedin
-            ? Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // Avatar
-                  CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.white,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: FadeInImage.assetNetwork(
-                        placeholder: AppImages.boyavathar,
-                        image: 'image',
-                        fit: BoxFit.cover,
-                        imageErrorBuilder: (context, error, stackTrace) {
-                          return Image.asset(
-                            AppImages.boyavathar,
-                            fit: BoxFit.cover,
-                          );
-                        },
-                      ),
+      backgroundColor: AppColors.primary,
+      automaticallyImplyLeading: false,
+      elevation: 0,
+      title: isloggedin
+          ? Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Avatar
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: FadeInImage.assetNetwork(
+                      placeholder: AppImages.boyavathar,
+                      image: 'image',
+                      fit: BoxFit.cover,
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return Image.asset(
+                          AppImages.boyavathar,
+                          fit: BoxFit.cover,
+                        );
+                      },
                     ),
                   ),
-                  const SizedBox(width: 12),
+                ),
+                const SizedBox(width: 12),
 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        name,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
-                      Text(
-                        email,
-                        style:
-                            const TextStyle(fontSize: 14, color: Colors.white),
-                      ),
-                    ],
-                  ),
+                    ),
+                    Text(
+                      email,
+                      style: const TextStyle(fontSize: 14, color: Colors.white),
+                    ),
+                  ],
+                ),
 
-                  const Spacer(),
-                ],
-              )
-            : null
-        // : ElevatedButton(
-        //     child: Text(
-        //       'Click here to Login',
-        //       style: const TextStyle(
-        //         fontSize: 18,
-        //         fontWeight: FontWeight.bold,
-        //         color: Colors.black,
-        //       ),
-        //     ),
-        //     onPressed: () {
-        //       Get.toNamed(RouteName.login);
-        //     },
-        //   ),
-        );
+                const Spacer(),
+              ],
+            )
+          : null,
+      // : ElevatedButton(
+      //     child: Text(
+      //       'Click here to Login',
+      //       style: const TextStyle(
+      //         fontSize: 18,
+      //         fontWeight: FontWeight.bold,
+      //         color: Colors.black,
+      //       ),
+      //     ),
+      //     onPressed: () {
+      //       Get.toNamed(RouteName.login);
+      //     },
+      //   ),
+    );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 5);
 }
+
 class PageAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PageAppBar({super.key, required this.title, this.leading = true});
   final String title;

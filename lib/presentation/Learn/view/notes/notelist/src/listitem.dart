@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/helpers/dialougehelper.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/helpers/dialougehelper.dart';
 
 import '../../../../../../app/Di/dimensions.dart';
 import '../../../../../../app/config/routes/route_name.dart';

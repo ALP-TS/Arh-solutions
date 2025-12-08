@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
-import 'package:b_soft_appliction/presentation/common/view/login/src/loginform.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
+import 'package:arh_solution_app/presentation/common/view/login/src/loginform.dart';
 import '../../viewmodel/loginvm.dart';
 
 class LoginPage extends StatelessWidget {

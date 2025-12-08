@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
-import 'package:b_soft_appliction/core/helpers/dialougehelper.dart';
-import 'package:b_soft_appliction/core/helpers/toasthelper.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/core/helpers/dialougehelper.dart';
+import 'package:arh_solution_app/core/helpers/toasthelper.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
@@ -17,11 +17,12 @@ import '../../../app/Di/dimensions.dart';
 import '../../../app/config/theme/colors.dart';
 
 class ZoomMeetingScreen extends StatefulWidget {
-  const ZoomMeetingScreen(
-      {super.key,
-      required this.meetingUrl,
-      required this.stuname,
-      required this.topic});
+  const ZoomMeetingScreen({
+    super.key,
+    required this.meetingUrl,
+    required this.stuname,
+    required this.topic,
+  });
   final String meetingUrl;
   final String stuname;
   final String topic;
@@ -189,9 +190,11 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
 
       consolePrint('Headset state: $currentState');
       consolePrint(
-          'Wired headset: ${currentState[HeadsetType.WIRED] == HeadsetState.CONNECTED ? "Connected" : "Disconnected"}');
+        'Wired headset: ${currentState[HeadsetType.WIRED] == HeadsetState.CONNECTED ? "Connected" : "Disconnected"}',
+      );
       consolePrint(
-          'Wireless headset: ${currentState[HeadsetType.WIRELESS] == HeadsetState.CONNECTED ? "Connected" : "Disconnected"}');
+        'Wireless headset: ${currentState[HeadsetType.WIRELESS] == HeadsetState.CONNECTED ? "Connected" : "Disconnected"}',
+      );
 
       if (!mounted) {
         _headsetState = currentState;
@@ -233,22 +236,27 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
       case HeadsetChangedEvent.WIRED_CONNECTED:
         if (mounted)
           setState(
-              () => _headsetState[HeadsetType.WIRED] = HeadsetState.CONNECTED);
+            () => _headsetState[HeadsetType.WIRED] = HeadsetState.CONNECTED,
+          );
         break;
       case HeadsetChangedEvent.WIRED_DISCONNECTED:
         if (mounted)
-          setState(() =>
-              _headsetState[HeadsetType.WIRED] = HeadsetState.DISCONNECTED);
+          setState(
+            () => _headsetState[HeadsetType.WIRED] = HeadsetState.DISCONNECTED,
+          );
         break;
       case HeadsetChangedEvent.WIRELESS_CONNECTED:
         if (mounted)
-          setState(() =>
-              _headsetState[HeadsetType.WIRELESS] = HeadsetState.CONNECTED);
+          setState(
+            () => _headsetState[HeadsetType.WIRELESS] = HeadsetState.CONNECTED,
+          );
         break;
       case HeadsetChangedEvent.WIRELESS_DISCONNECTED:
         if (mounted)
-          setState(() =>
-              _headsetState[HeadsetType.WIRELESS] = HeadsetState.DISCONNECTED);
+          setState(
+            () =>
+                _headsetState[HeadsetType.WIRELESS] = HeadsetState.DISCONNECTED,
+          );
         break;
     }
   }
@@ -334,7 +342,8 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
         final newCamStatus =
             permissions[Permission.camera] ?? PermissionStatus.denied;
 
-        final allGranted = newMicStatus == PermissionStatus.granted &&
+        final allGranted =
+            newMicStatus == PermissionStatus.granted &&
             newCamStatus == PermissionStatus.granted;
 
         if (!mounted) {
@@ -483,11 +492,11 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
 
     final WebViewController controller =
         WebViewController.fromPlatformCreationParams(
-      params,
-      onPermissionRequest: (WebViewPermissionRequest request) {
-        _handleWebViewPermissionRequest(request);
-      },
-    );
+          params,
+          onPermissionRequest: (WebViewPermissionRequest request) {
+            _handleWebViewPermissionRequest(request);
+          },
+        );
 
     controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
@@ -521,13 +530,16 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
   }
 
   Future<void> _handleWebViewPermissionRequest(
-      WebViewPermissionRequest request) async {
+    WebViewPermissionRequest request,
+  ) async {
     debugPrint('WebView permission request for: ${request.types}');
 
-    bool needsMicrophone =
-        request.types.contains(WebViewPermissionResourceType.microphone);
-    bool needsCamera =
-        request.types.contains(WebViewPermissionResourceType.camera);
+    bool needsMicrophone = request.types.contains(
+      WebViewPermissionResourceType.microphone,
+    );
+    bool needsCamera = request.types.contains(
+      WebViewPermissionResourceType.camera,
+    );
 
     if (Platform.isIOS) {
       bool shouldGrant = true;
@@ -603,7 +615,8 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
   }
 
   Future<List<String>> _androidFileSelectorHandler(
-      FileSelectorParams params) async {
+    FileSelectorParams params,
+  ) async {
     return <String>[];
   }
 
@@ -628,8 +641,7 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
         return;
       }
 
-      final meetingEnded = await _controller.runJavaScriptReturningResult(
-        '''
+      final meetingEnded = await _controller.runJavaScriptReturningResult('''
         (function() {
           const endedMessage = document.querySelector('[data-testid="meeting-ended"]') || 
                                document.querySelector('.meeting-ended') ||
@@ -641,8 +653,7 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
           
           return endedMessage !== null || isPostMeeting;
         })();
-        ''',
-      );
+        ''');
 
       if (meetingEnded.toString() == 'true') {
         _endMeeting(reason: 'Meeting has ended');
@@ -670,9 +681,9 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
     if (mounted) {
       Navigator.of(context).pop();
       if (reason.isNotEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(reason)),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(reason)));
       }
     }
   }
@@ -713,11 +724,7 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.mic_off,
-                size: 64,
-                color: Colors.grey,
-              ),
+              const Icon(Icons.mic_off, size: 64, color: Colors.grey),
               const SizedBox(height: 16),
               const Text(
                 'Microphone and Camera permissions are required',
@@ -748,18 +755,12 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
 
     if (!isHeadsetConnected) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.topic),
-        ),
+        appBar: AppBar(title: Text(widget.topic)),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.headset_off,
-                size: 64,
-                color: Colors.grey,
-              ),
+              const Icon(Icons.headset_off, size: 64, color: Colors.grey),
               const SizedBox(height: 16),
               const Text(
                 'Headset is required to join this meeting',
@@ -790,9 +791,11 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
 
     return WillPopScope(
       onWillPop: () async {
-        ToastHelper.warningToast(context,
-            title: 'Warning',
-            desc: 'You cant go back without leaving the meeting');
+        ToastHelper.warningToast(
+          context,
+          title: 'Warning',
+          desc: 'You cant go back without leaving the meeting',
+        );
         return false;
       },
       child: Scaffold(
@@ -807,9 +810,7 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
             Align(
               alignment: Alignment.topCenter,
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.vertical(
@@ -819,8 +820,11 @@ class _ZoomMeetingScreenState extends State<ZoomMeetingScreen> {
                 height: Di.screenWidth * 0.1,
                 width: Di.screenWidth * 0.6,
                 child: Center(
-                    child: AppTextHelper.button(
-                        text: widget.stuname, fcolor: AppColors.white)),
+                  child: AppTextHelper.button(
+                    text: widget.stuname,
+                    fcolor: AppColors.white,
+                  ),
+                ),
               ),
             ),
           ],

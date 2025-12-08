@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 
 import '../../../../app/Di/dimensions.dart';
 
@@ -56,8 +56,9 @@ class _ExamScreenState extends State<ExamScreen> with WidgetsBindingObserver {
               child: Scaffold(
                 body: SafeArea(
                   child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: Di.screenWidth * 0.04),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Di.screenWidth * 0.04,
+                    ),
                     child: Flex(
                       direction: Axis.vertical,
                       children: [
@@ -66,7 +67,8 @@ class _ExamScreenState extends State<ExamScreen> with WidgetsBindingObserver {
                           totalQuestions: examattendVM.questions.length,
                           onTimerFinish: examattendVM.handleTimerFinish,
                           minutes: examattendVM.timeconvert(
-                              examattendVM.examData.value!.totalTime),
+                            examattendVM.examData.value!.totalTime,
+                          ),
                         ),
                         const SizedBox(height: 32),
                         QuestionCard(
@@ -91,18 +93,21 @@ class _ExamScreenState extends State<ExamScreen> with WidgetsBindingObserver {
                                 .optionD,
                             examattendVM
                                 .questions[examattendVM.currentindex.value]
-                                .optionE
+                                .optionE,
                           ],
                         ),
                         FooterButtons(
                           selectedOption: examattendVM.selectedoption.value,
                           onNext: () => examattendVM.nextquestion(
-                              examattendVM
-                                  .questions[examattendVM.currentindex.value].id
-                                  .toString(),
-                              examattendVM.selectedoption.value),
+                            examattendVM
+                                .questions[examattendVM.currentindex.value]
+                                .id
+                                .toString(),
+                            examattendVM.selectedoption.value,
+                          ),
                           onPrevious: examattendVM.previousquestion,
-                          islast: examattendVM.currentindex.value + 1 ==
+                          islast:
+                              examattendVM.currentindex.value + 1 ==
                               examattendVM.questions.length,
                           isfirst: examattendVM.currentindex.value == 0,
                         ),
@@ -118,28 +123,25 @@ class _ExamScreenState extends State<ExamScreen> with WidgetsBindingObserver {
 
 class QuestionCard extends StatelessWidget {
   final String question;
-  const QuestionCard({
-    super.key,
-    required this.question,
-  });
+  const QuestionCard({super.key, required this.question});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 16,
-              offset: const Offset(0, 8),
-            ),
-          ],
-        ),
-        child:
-            AppTextHelper.subHead(text: question, fontWeight: FontWeight.w600));
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 16,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: AppTextHelper.subHead(text: question, fontWeight: FontWeight.w600),
+    );
   }
 }

@@ -1,5 +1,5 @@
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/data/network/network_api_services.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/data/network/network_api_services.dart';
 
 import '../endpoints/appendpoints.dart';
 
@@ -25,13 +25,13 @@ class SignupRepo {
   }
 
   Future<dynamic> getSignupResponse({
-  required String name,
-  required String email,
-  required String class_id,
-  required String password,
-  required String phone,
+    required String name,
+    required String email,
+    required String class_id,
+    required String password,
+    required String phone,
   }) async {
-     final data = {
+    final data = {
       "name": name,
       "email": email,
       "class_id": class_id,
@@ -40,7 +40,7 @@ class SignupRepo {
     };
     consolePrint("signup registration initialized");
     consolePrint("URL => ${AppEndpoints.signUp}");
-    dynamic response = await _apiService.postApi(data,AppEndpoints.signUp,);
+    dynamic response = await _apiService.postApi(data, AppEndpoints.signUp);
     consolePrint('======================> signup api is completed');
     return response;
   }

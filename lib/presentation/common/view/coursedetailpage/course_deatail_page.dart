@@ -1,5 +1,5 @@
-import 'package:b_soft_appliction/domain/models/coursemodel.dart';
-import 'package:b_soft_appliction/presentation/common/viewmodel/coursevm.dart';
+import 'package:arh_solution_app/domain/models/coursemodel.dart';
+import 'package:arh_solution_app/presentation/common/viewmodel/coursevm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -13,52 +13,49 @@ class CourseDetailsPage extends StatelessWidget {
   const CourseDetailsPage({super.key});
 
   @override
-Widget build(BuildContext context) {
-  final String courseId = Get.arguments ?? '';
+  Widget build(BuildContext context) {
+    final String courseId = Get.arguments ?? '';
 
-  if (courseId.isEmpty) {
-    return const Scaffold(
-      body: Center(child: Text("Invalid Course ID")),
+    if (courseId.isEmpty) {
+      return const Scaffold(body: Center(child: Text("Invalid Course ID")));
+    }
+
+    print('Course ID received: $courseId');
+
+    final controller = Get.put(CourseDetailsController(courseId: courseId));
+
+    return Scaffold(
+      backgroundColor: Colors.grey[50],
+      body: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        final course = controller.courseData.value;
+
+        if (course == null) {
+          return const Center(child: Text('No course data available'));
+        }
+
+        return CustomScrollView(
+          slivers: [
+            _buildAppBar(context, course),
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  _buildPriceSection(course),
+                  _buildStatsSection(course),
+                  _buildTabSection(controller, course),
+                  const SizedBox(height: 80),
+                ],
+              ),
+            ),
+          ],
+        );
+      }),
+      // bottomNavigationBar: _buildBottomBar(controller),
     );
   }
-
-  print('Course ID received: $courseId');
-
-  final controller = Get.put(CourseDetailsController(courseId: courseId));
-
-  return Scaffold(
-    backgroundColor: Colors.grey[50],
-    body: Obx(() {
-      if (controller.isLoading.value) {
-        return const Center(child: CircularProgressIndicator());
-      }
-
-      final course = controller.courseData.value;
-
-      if (course == null) {
-        return const Center(child: Text('No course data available'));
-      }
-
-      return CustomScrollView(
-        slivers: [
-          _buildAppBar(context, course),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                _buildPriceSection(course),
-                _buildStatsSection(course),
-                _buildTabSection(controller, course),
-                const SizedBox(height: 80),
-              ],
-            ),
-          ),
-        ],
-      );
-    }),
-    // bottomNavigationBar: _buildBottomBar(controller),
-  );
-}
-
 
   Widget _buildAppBar(BuildContext context, Courseresponse course) {
     return SliverAppBar(

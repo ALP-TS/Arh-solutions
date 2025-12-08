@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/helpers/dialougehelper.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/presentation/settings/viewmodel/profilevm.dart';
+import 'package:arh_solution_app/core/helpers/dialougehelper.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/presentation/settings/viewmodel/profilevm.dart';
 
 import '../../../AuthPref.dart';
 import '../../../app/config/routes/route_name.dart';
@@ -18,9 +18,7 @@ class LoginVM extends GetxController {
   void onInit() {
     super.onInit();
     loadusername();
-    consolePrint(
-      '==================> Login Controller Initialized',
-    );
+    consolePrint('==================> Login Controller Initialized');
   }
 
   final profileVM = Get.find<Profilevm>();
@@ -42,16 +40,22 @@ class LoginVM extends GetxController {
     if (profileVM.profileData != null) {
       if (profileVM.profileData!.feeStatus == 'expired') {
         await AuthPreferences.logout();
-        Dialougehelper.warning(Get.context, 'Subscription Expired',
-            'Your subscription has expired. Please renew your subscription to continue using our services.');
+        Dialougehelper.warning(
+          Get.context,
+          'Subscription Expired',
+          'Your subscription has expired. Please renew your subscription to continue using our services.',
+        );
       } else {
         Get.offAllNamed(RouteName.navbar);
       }
     } else {
       await AuthPreferences.logout();
       Get.offAllNamed(RouteName.login);
-      Dialougehelper.warning(Get.context, 'Profile Issue',
-          'Unable to load your profile. Please log out and login again to continue.');
+      Dialougehelper.warning(
+        Get.context,
+        'Profile Issue',
+        'Unable to load your profile. Please log out and login again to continue.',
+      );
     }
   }
 
@@ -81,10 +85,12 @@ class LoginVM extends GetxController {
           BaseDeviceInfo androidInfo = await DeviceInfoPlugin().deviceInfo;
           String deviceId = androidInfo.data['fingerprint'];
           consolePrint(
-              '======================>In login VM (function login) deviceId is $deviceId');
+            '======================>In login VM (function login) deviceId is $deviceId',
+          );
           consolePrint('======================>deviceId is $deviceId ');
           consolePrint(
-              '======================>adminprofile.secureMod is ${adminprofile.secureMod}');
+            '======================>adminprofile.secureMod is ${adminprofile.secureMod}',
+          );
           if (adminprofile.secureMod == 'none') {
             savelogin(usermodel);
           } else if (usermodel.deviceId == null || usermodel.deviceId == '') {
@@ -103,10 +109,12 @@ class LoginVM extends GetxController {
           BaseDeviceInfo iosInfo = await DeviceInfoPlugin().deviceInfo;
           String deviceId = iosInfo.data['identifierForVendor'];
           consolePrint(
-              '======================>In login VM (function login) deviceId is $deviceId');
+            '======================>In login VM (function login) deviceId is $deviceId',
+          );
           consolePrint('======================>deviceId is $deviceId ');
           consolePrint(
-              '======================>adminprofile.secureMod is ${adminprofile.secureMod}');
+            '======================>adminprofile.secureMod is ${adminprofile.secureMod}',
+          );
           if (adminprofile.secureMod == 'none') {
             savelogin(usermodel);
           } else if (usermodel.deviceId == null || usermodel.deviceId == '') {
@@ -129,14 +137,16 @@ class LoginVM extends GetxController {
           'Invalid username or password',
         );
         consolePrint(
-            '======================>In login VM (function login) Error',
-            e.toString());
+          '======================>In login VM (function login) Error',
+          e.toString(),
+        );
       } finally {
         isLoading.value = false;
       }
     } else {
       consolePrint(
-          '======================>In login VM (function login) Failed');
+        '======================>In login VM (function login) Failed',
+      );
     }
   }
 
@@ -146,8 +156,8 @@ class LoginVM extends GetxController {
       return 'Please enter your email';
     }
     if (!RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(value)) {
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    ).hasMatch(value)) {
       return 'Please enter a valid email address';
     }
     return null;
@@ -167,9 +177,7 @@ class LoginVM extends GetxController {
   void dispose() {
     emailController.value.dispose();
     passwordController.value.dispose();
-    consolePrint(
-      '==================> Login Controller Closed',
-    );
+    consolePrint('==================> Login Controller Closed');
     super.dispose();
   }
 }

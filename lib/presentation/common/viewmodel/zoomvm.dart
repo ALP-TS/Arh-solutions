@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/domain/repository/zoomrepo.dart';
+import 'package:arh_solution_app/domain/repository/zoomrepo.dart';
 
 import '../../../core/utils/debuprint.dart';
 import '../../../domain/models/zoommeetlist_model.dart';
@@ -8,9 +8,7 @@ class ZoomVM extends GetxController {
   void onInit() {
     super.onInit();
     getZoomlist();
-    consolePrint(
-      '==================> Zoom Controller Initialized',
-    );
+    consolePrint('==================> Zoom Controller Initialized');
   }
 
   final api = Zoomrepo();

@@ -8,7 +8,7 @@
 // import 'package:flutter/services.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
-// import 'package:b_soft_appliction/core/res/assets/images.dart';
+// import 'package:arh_solution_app/core/res/assets/images.dart';
 // import 'package:share_plus/share_plus.dart';
 
 // import '../../../../../app/config/theme/colors.dart';

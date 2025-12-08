@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/domain/repository/coursedetailrepo.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/domain/repository/coursedetailrepo.dart';
 
 import '../../../domain/models/coursedetails_model.dart';
 
@@ -8,9 +8,7 @@ class CoursedetailVM extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    consolePrint(
-      '==================> Course Detail Controller Initialized',
-    );
+    consolePrint('==================> Course Detail Controller Initialized');
     getCourse();
   }
 
@@ -21,9 +19,7 @@ class CoursedetailVM extends GetxController {
 
   Future<void> getCourse() async {
     isloading.value = true;
-    consolePrint(
-      '==================> Course Detail Controller Initialized',
-    );
+    consolePrint('==================> Course Detail Controller Initialized');
     try {
       final response = await api.getcoursedetails();
       ongoingCourses = Course.fromJson(response['data']);
@@ -31,17 +27,14 @@ class CoursedetailVM extends GetxController {
       //     .map((e) => Course.fromJson(e))
       //     .toList();
       print('');
-    }
-     catch (e) {
+    } catch (e) {
       consolePrint(
         '==================> Course Detail Controller Error',
         e.toString(),
       );
     } finally {
       isloading.value = false;
-      consolePrint(
-        '==================> Course Detail Controller Completed',
-      );
+      consolePrint('==================> Course Detail Controller Completed');
     }
   }
 }

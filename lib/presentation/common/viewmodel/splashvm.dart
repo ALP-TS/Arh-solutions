@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:b_soft_appliction/app/config/routes/route_name.dart';
-import 'package:b_soft_appliction/core/helpers/dialougehelper.dart';
-import 'package:b_soft_appliction/presentation/common/view/dashboard/dashboard.dart';
+import 'package:arh_solution_app/app/config/routes/route_name.dart';
+import 'package:arh_solution_app/core/helpers/dialougehelper.dart';
+import 'package:arh_solution_app/presentation/common/view/dashboard/dashboard.dart';
 
 import '../../../AuthPref.dart';
 import '../../settings/viewmodel/profilevm.dart';

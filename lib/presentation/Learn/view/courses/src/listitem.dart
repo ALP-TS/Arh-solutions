@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 
 import '../../../../../app/config/routes/route_name.dart';
 import '../../../../../app/config/theme/colors.dart';
@@ -8,10 +8,7 @@ import '../../../../../core/res/assets/images.dart';
 import '../../../../../domain/models/coursedetails_model.dart';
 
 class ListCard extends StatelessWidget {
-  const ListCard({
-    super.key,
-    required this.ongoingCourses,
-  });
+  const ListCard({super.key, required this.ongoingCourses});
 
   final Course ongoingCourses;
 
@@ -22,9 +19,7 @@ class ListCard extends StatelessWidget {
       // height: 300,
       child: Card(
         elevation: 3,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
@@ -40,30 +35,34 @@ class ListCard extends StatelessWidget {
               Container(
                 height: 250,
                 width: double.infinity,
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.6),
-                    offset: const Offset(0, 5),
-                    blurRadius: 8,
-                  ),
-                  ],),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.6),
+                      offset: const Offset(0, 5),
+                      blurRadius: 8,
+                    ),
+                  ],
+                ),
 
-                     child: ClipRRect(
-                     borderRadius: const BorderRadius.vertical(
-                        top: Radius.circular(16), bottom: Radius.circular(16)),
-                     child: FadeInImage.assetNetwork(
-                      placeholder:
-                      AppImages.coursedefault, // Placeholder image path
-                      image: ongoingCourses.profile, // URL of the image
-                      fit: BoxFit.cover,
-                      imageErrorBuilder: (context, error, stackTrace) {
-                        return Image.asset(
-                          AppImages.coursedefault, // Fallback asset image path
-                          fit: BoxFit.cover,
-                        );
-                      },
-                    ),
-                    ),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(16),
+                    bottom: Radius.circular(16),
+                  ),
+                  child: FadeInImage.assetNetwork(
+                    placeholder:
+                        AppImages.coursedefault, // Placeholder image path
+                    image: ongoingCourses.profile, // URL of the image
+                    fit: BoxFit.cover,
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        AppImages.coursedefault, // Fallback asset image path
+                        fit: BoxFit.cover,
+                      );
+                    },
+                  ),
+                ),
               ),
 
               Padding(
@@ -118,10 +117,13 @@ class ListCard extends StatelessWidget {
                   ),
                   width: double.infinity,
                   child: Center(
-                      child: AppTextHelper.button(
-                          text: 'Go to study', fcolor: AppColors.white)),
+                    child: AppTextHelper.button(
+                      text: 'Go to study',
+                      fcolor: AppColors.white,
+                    ),
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),

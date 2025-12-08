@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
 
 import '../../../../app/Di/dimensions.dart';
 import '../../../../app/config/theme/colors.dart';
@@ -8,7 +8,6 @@ import '../../../../app/config/theme/text.dart';
 import '../../viewmodel/tabviewvm.dart';
 
 class StudyMaterialTab extends StatelessWidget {
-  
   const StudyMaterialTab({super.key});
 
   @override
@@ -45,8 +44,10 @@ class StudyMaterialTab extends StatelessWidget {
             decoration: BoxDecoration(
               border: tabbarVM.selectedTab.value == title
                   ? const Border(
-                      bottom:
-                          BorderSide(color: AppColors.lightprimary, width: 3),
+                      bottom: BorderSide(
+                        color: AppColors.lightprimary,
+                        width: 3,
+                      ),
                     )
                   : const Border(),
               color: AppColors.white,

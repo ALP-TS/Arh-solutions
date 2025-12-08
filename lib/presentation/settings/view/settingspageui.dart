@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:b_soft_appliction/core/constant/constants.dart';
+import 'package:arh_solution_app/core/constant/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/Di/dimensions.dart';
@@ -63,13 +63,14 @@ class SettingsPage extends StatelessWidget {
                     ),
                     SizedBox(height: Di.screenWidth * 0.02),
                     AppTextHelper.mainHead(
-                        text: profileVM.profileData!.name,
-                        fcolor: Colors.white),
+                      text: profileVM.profileData!.name,
+                      fcolor: Colors.white,
+                    ),
                     SizedBox(height: Di.screenWidth * 0.01),
                     AppTextHelper.subHead(
                       text: profileVM.profileData!.email,
                       fcolor: AppColors.white,
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -110,10 +111,7 @@ class SettingsPage extends StatelessWidget {
                     //   ),
                     //   onTap: () {},
                     // ),
-                    Divider(
-                      height: 1,
-                      color: Colors.grey.shade300,
-                    ),
+                    Divider(height: 1, color: Colors.grey.shade300),
                     ListTile(
                       leading: const Icon(
                         HugeIcons.strokeRoundedDocumentValidation,
@@ -124,23 +122,18 @@ class SettingsPage extends StatelessWidget {
                         color: Colors.grey.shade500,
                       ),
                       onTap: () async {
-                        Uri url = Uri.parse(
-                          Constants.privacyPolicy
-                           );
-                        if (!await launchUrl(url,
-                            mode: LaunchMode.inAppWebView)) {
+                        Uri url = Uri.parse(Constants.privacyPolicy);
+                        if (!await launchUrl(
+                          url,
+                          mode: LaunchMode.inAppWebView,
+                        )) {
                           throw Exception('Could not launch $url');
                         }
                       },
                     ),
-                    Divider(
-                      height: 1,
-                      color: Colors.grey.shade300,
-                    ),
+                    Divider(height: 1, color: Colors.grey.shade300),
                     ListTile(
-                      leading: const Icon(
-                        HugeIcons.strokeRoundedGlobe02,
-                      ),
+                      leading: const Icon(HugeIcons.strokeRoundedGlobe02),
                       title: const Text('Clear Cache'),
                       trailing: Icon(
                         Icons.chevron_right,
@@ -163,8 +156,11 @@ class SettingsPage extends StatelessWidget {
                             //   'App cache size: ${size.toStringAsFixed(2)} MB. Do you want to free up space?',
                             // );
                           } else {
-                            Dialougehelper.info(Get.context, '',
-                                'your app is already optimized');
+                            Dialougehelper.info(
+                              Get.context,
+                              '',
+                              'your app is already optimized',
+                            );
                           }
                         });
                         // Navigate to terms and conditions screen
@@ -174,7 +170,7 @@ class SettingsPage extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 
 class AnimatedSplashScreen extends StatefulWidget {
   final Color background;
@@ -10,14 +10,15 @@ class AnimatedSplashScreen extends StatefulWidget {
   final Color brandnamecolor;
   final String companyname;
 
-  const AnimatedSplashScreen(
-      {super.key,
-      required this.background,
-      required this.foregroundcolor,
-      required this.logo,
-      required this.brandname,
-      this.brandnamecolor = Colors.black,
-      this.companyname = ''});
+  const AnimatedSplashScreen({
+    super.key,
+    required this.background,
+    required this.foregroundcolor,
+    required this.logo,
+    required this.brandname,
+    this.brandnamecolor = Colors.black,
+    this.companyname = '',
+  });
 
   @override
   State<AnimatedSplashScreen> createState() => _AnimatedSplashScreenState();
@@ -39,8 +40,9 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
           double horizontalPadding = screenWidth > 600
               ? 180
               : 130; // Larger padding for larger screens
-          double verticalSpacing =
-              screenHeight > 600 ? 30 : 20; // More spacing for larger screens
+          double verticalSpacing = screenHeight > 600
+              ? 30
+              : 20; // More spacing for larger screens
 
           return Container(
             decoration: BoxDecoration(
@@ -56,20 +58,25 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
                       Positioned.fill(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: horizontalPadding),
-                          child: CircleAvatar(
-                            backgroundColor: widget.foregroundcolor,
-                          )
-                              .animate()
-                              .slideY(
-                                  begin: -0.5, end: 0.2, duration: 0.5.seconds)
-                              .then(delay: 1.milliseconds)
-                              .slideY(end: -0.3, duration: 0.5.seconds)
-                              .then(delay: 1.milliseconds)
-                              .slideY(end: 0.1, duration: 0.5.seconds)
-                              .then(delay: 0.1.seconds)
-                              .scaleXY(end: 20, duration: 2.seconds)
-                              .then(delay: 2.seconds),
+                            horizontal: horizontalPadding,
+                          ),
+                          child:
+                              CircleAvatar(
+                                    backgroundColor: widget.foregroundcolor,
+                                  )
+                                  .animate()
+                                  .slideY(
+                                    begin: -0.5,
+                                    end: 0.2,
+                                    duration: 0.5.seconds,
+                                  )
+                                  .then(delay: 1.milliseconds)
+                                  .slideY(end: -0.3, duration: 0.5.seconds)
+                                  .then(delay: 1.milliseconds)
+                                  .slideY(end: 0.1, duration: 0.5.seconds)
+                                  .then(delay: 0.1.seconds)
+                                  .scaleXY(end: 20, duration: 2.seconds)
+                                  .then(delay: 2.seconds),
                         ),
                       ),
                       Align(
@@ -83,19 +90,19 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
                               child: Image(image: AssetImage(widget.logo))
                                   .animate()
                                   .fadeIn(
-                                      delay: 2.seconds,
-                                      duration: 900.milliseconds)
+                                    delay: 2.seconds,
+                                    duration: 900.milliseconds,
+                                  )
                                   .slideX(begin: 3, duration: 0.5.seconds),
                             ),
                             SizedBox(height: verticalSpacing * 2),
                             AppTextHelper.caption(
-                                    text: widget.brandname,
-                                    fcolor: widget.brandnamecolor)
-                                .animate()
-                                .fadeIn(
-                                  delay: 3.seconds,
-                                  duration: 900.milliseconds,
-                                ),
+                              text: widget.brandname,
+                              fcolor: widget.brandnamecolor,
+                            ).animate().fadeIn(
+                              delay: 3.seconds,
+                              duration: 900.milliseconds,
+                            ),
                           ],
                         ),
                       ),
@@ -104,20 +111,26 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 40.0),
-                  child: Column(children: [
-                    widget.companyname == ''
-                        ? AppTextHelper.caption(text: '')
-                        : AppTextHelper.caption(
-                                text: 'Powered By', fcolor: Colors.white)
-                            .animate()
-                            .fadeIn(
-                                delay: 2.5.seconds, duration: 900.milliseconds),
-                    AppTextHelper.caption(
-                            text: widget.companyname,
-                            fontWeight: FontWeight.bold)
-                        .animate()
-                        .fadeIn(delay: 2.5.seconds, duration: 900.milliseconds),
-                  ]),
+                  child: Column(
+                    children: [
+                      widget.companyname == ''
+                          ? AppTextHelper.caption(text: '')
+                          : AppTextHelper.caption(
+                              text: 'Powered By',
+                              fcolor: Colors.white,
+                            ).animate().fadeIn(
+                              delay: 2.5.seconds,
+                              duration: 900.milliseconds,
+                            ),
+                      AppTextHelper.caption(
+                        text: widget.companyname,
+                        fontWeight: FontWeight.bold,
+                      ).animate().fadeIn(
+                        delay: 2.5.seconds,
+                        duration: 900.milliseconds,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

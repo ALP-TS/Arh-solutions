@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/domain/models/topic_model.dart';
-import 'package:b_soft_appliction/domain/repository/topicrepo.dart';
+import 'package:arh_solution_app/domain/models/topic_model.dart';
+import 'package:arh_solution_app/domain/repository/topicrepo.dart';
 
 import '../../../core/utils/debuprint.dart';
 import '../view/topic/topiclist.dart';
@@ -13,9 +13,7 @@ class TopicVM extends GetxController {
   void onInit() {
     super.onInit();
     getTopics(subjectId);
-    consolePrint(
-      '==================> Topic Controller Initialized',
-    );
+    consolePrint('==================> Topic Controller Initialized');
   }
 
   final api = Topicrepo();
@@ -27,8 +25,9 @@ class TopicVM extends GetxController {
     try {
       isLoading.value = true;
       final response = await api.topiclist(subId);
-      topicList.value =
-          (response['data'] as List).map((e) => TopicData.fromJson(e)).toList();
+      topicList.value = (response['data'] as List)
+          .map((e) => TopicData.fromJson(e))
+          .toList();
     } catch (e) {
       consolePrint('==================> Topic Controller Error', e.toString());
     } finally {

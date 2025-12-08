@@ -8,7 +8,7 @@ class AppImages {
   //* .png
   // static String logo = '$imagePath/pklogo.png';
   // static String logowhite = '$imagePath/pklogo.png';
-  static String splashbg = '$imagePath/logo_img.png';
+  static String splashbg = '$imagePath/arh_solutions-remove.png';
   static String welcomeimg = '$imagePath/login_bg_img.png';
   static String boyavathar = '$imagePath/boy.png';
   static String girlavathar = '$imagePath/girl.png';
@@ -16,7 +16,7 @@ class AppImages {
   static String emptyimg = '$imagePath/emptypage.png';
   static String nursedash = '$imagePath/beaker.png';
   static String loginbg = '$imagePath/login_page_bgimg.png';
-  static String logoimg = '$imagePath/logo_img.png';
+  static String logoimg = '$imagePath/arh_solutions-remove.png';
   static String cardimg = '$imagePath/cardimg.png';
 
   //* .jpeg

@@ -2,14 +2,14 @@ import 'dart:io';
 
 // import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 // import 'package:image_picker/image_picker.dart';
-import 'package:b_soft_appliction/app/config/localization/languages.dart';
-import 'package:b_soft_appliction/app/config/routes/routes.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/core/constant/constants.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/app/config/localization/languages.dart';
+import 'package:arh_solution_app/app/config/routes/routes.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/core/constant/constants.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 
-import 'package:b_soft_appliction/presentation/shared/view/custom_flutter_error.dart';
-import 'package:b_soft_appliction/presentation/shared/view/network_not_found.dart';
+import 'package:arh_solution_app/presentation/shared/view/custom_flutter_error.dart';
+import 'package:arh_solution_app/presentation/shared/view/network_not_found.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';

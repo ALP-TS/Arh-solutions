@@ -5,12 +5,12 @@
 // import 'package:get/get.dart';
 // import 'package:hugeicons/hugeicons.dart';
 // import 'package:intl/intl.dart';
-// import 'package:b_soft_appliction/AuthPref.dart';
-// import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
-// import 'package:b_soft_appliction/app/config/theme/text.dart';
-// import 'package:b_soft_appliction/core/res/assets/images.dart';
-// import 'package:b_soft_appliction/core/utils/debuprint.dart';
-// import 'package:b_soft_appliction/domain/models/zoommeetlist_model.dart';
+// import 'package:arh_solution_app/AuthPref.dart';
+// import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
+// import 'package:arh_solution_app/app/config/theme/text.dart';
+// import 'package:arh_solution_app/core/res/assets/images.dart';
+// import 'package:arh_solution_app/core/utils/debuprint.dart';
+// import 'package:arh_solution_app/domain/models/zoommeetlist_model.dart';
 // import 'package:shimmer/shimmer.dart';
 // import '../../../../app/Di/dimensions.dart';
 // import '../../../../app/config/theme/colors.dart';
@@ -834,13 +834,11 @@
 //   }
 // }
 
-
-
 import 'dart:ui';
 
-import 'package:b_soft_appliction/core/res/assets/images.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/domain/models/zoommeetlist_model.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/domain/models/zoommeetlist_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:get/get.dart';
@@ -880,24 +878,22 @@ class Dashboard extends StatelessWidget {
           : GestureDetector(
               onTap: () => Get.toNamed(RouteName.login),
               child: Container(
-                  decoration: const BoxDecoration(
-                    color: AppColors.primary,
+                decoration: const BoxDecoration(color: AppColors.primary),
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      AppTextHelper.button(
+                        text: 'Click here to Login',
+                        fcolor: AppColors.white,
+                      ),
+                      Icon(Icons.login, color: AppColors.white),
+                    ],
                   ),
-                  child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          AppTextHelper.button(
-                              text: 'Click here to Login',
-                              fcolor: AppColors.white),
-                          Icon(
-                            Icons.login,
-                            color: AppColors.white,
-                          ),
-                        ],
-                      ))),
+                ),
+              ),
             ),
       body: SafeArea(
         child: RefreshIndicator(
@@ -953,7 +949,7 @@ class Dashboard extends StatelessWidget {
                         //   ),
                         // ),
                         CourseGrid(),
-                        
+
                         // WhatsAppShareButton(
                         //   imageAssetPath: 'assets/images/comingsoon.jpeg',
                         //   textContent: 'Hello', url: 'https://example.com',),
@@ -996,69 +992,66 @@ class WelcomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // color: AppColors.black.withOpacity(0.3),
-        height: Di.screenWidth * 0.45,
-        child: Image.asset(
-          AppImages.splashbg,
-        )
+      // color: AppColors.black.withOpacity(0.3),
+      height: Di.screenWidth * 0.45,
+      child: Image.asset(AppImages.splashbg),
 
-        // Stack(
-        //   children: [
-        //     Align(
-        //       alignment: Alignment.bottomCenter,
-        //       child: Container(
-        //         padding: EdgeInsets.all(Di.screenWidth * 0.05),
-        //         decoration: BoxDecoration(
-        //           color: const Color(0xFFE6F2FF),
-        //           borderRadius: BorderRadius.circular(12),
-        //           border: Border.all(color: AppColors.white),
-        //         ),
-        //         width: double.infinity,
-        //         height: Di.screenWidth * 0.4,
-        //         child: Row(
-        //           crossAxisAlignment: CrossAxisAlignment.start,
-        //           children: [
-        //             // Left section with text
-        //             Expanded(
-        //               child:
+      // Stack(
+      //   children: [
+      //     Align(
+      //       alignment: Alignment.bottomCenter,
+      //       child: Container(
+      //         padding: EdgeInsets.all(Di.screenWidth * 0.05),
+      //         decoration: BoxDecoration(
+      //           color: const Color(0xFFE6F2FF),
+      //           borderRadius: BorderRadius.circular(12),
+      //           border: Border.all(color: AppColors.white),
+      //         ),
+      //         width: double.infinity,
+      //         height: Di.screenWidth * 0.4,
+      //         child: Row(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           children: [
+      //             // Left section with text
+      //             Expanded(
+      //               child:
 
-        //               Column(
-        //                 crossAxisAlignment: CrossAxisAlignment.start,
-        //                 children: [
-        //                   AppTextHelper.subHead(
-        //                     text:
-        //                         'Our Learning Management System is designed to simplify education delivery',
-        //                     fontWeight: FontWeight.bold,
-        //                   ),
-        //                   const Spacer(),
-        //                   AppTextHelper.caption(text: 'Empowering Education'),
-        //                 ],
-        //               ),
-        //             ),
+      //               Column(
+      //                 crossAxisAlignment: CrossAxisAlignment.start,
+      //                 children: [
+      //                   AppTextHelper.subHead(
+      //                     text:
+      //                         'Our Learning Management System is designed to simplify education delivery',
+      //                     fontWeight: FontWeight.bold,
+      //                   ),
+      //                   const Spacer(),
+      //                   AppTextHelper.caption(text: 'Empowering Education'),
+      //                 ],
+      //               ),
+      //             ),
 
-        //             // Right spacing (instead of Expanded use SizedBox)
-        //             SizedBox(width: Di.screenWidth * 0.15),
-        //           ],
-        //         ),
-        //       ),
-        //     ),
+      //             // Right spacing (instead of Expanded use SizedBox)
+      //             SizedBox(width: Di.screenWidth * 0.15),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
 
-        //     // Rotated image
-        //     Positioned(
-        //       right: 0,
-        //       bottom: 0,
-        //       child: Transform.rotate(
-        //         angle: 0.30, // radians
-        //         child: Image.asset(
-        //           AppImages.nursedash,
-        //           height: Di.screenWidth * 0.6,
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
-
-        );
+      //     // Rotated image
+      //     Positioned(
+      //       right: 0,
+      //       bottom: 0,
+      //       child: Transform.rotate(
+      //         angle: 0.30, // radians
+      //         child: Image.asset(
+      //           AppImages.nursedash,
+      //           height: Di.screenWidth * 0.6,
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
+    );
   }
 }
 
@@ -1145,7 +1138,7 @@ class _HorizontalZoomMeetingsState extends State<HorizontalZoomMeetings> {
             ),
             const SizedBox(height: 16),
             SizedBox(
-              height: 280,
+              height: 360,
               child: Column(
                 children: [
                   Visibility(
@@ -1153,59 +1146,63 @@ class _HorizontalZoomMeetingsState extends State<HorizontalZoomMeetings> {
                         vm.swipcard < vm.meetlist.length || vm.meetlist.isEmpty,
                     child: Expanded(
                       child: CardSwiper(
-                        onSwipe: (
-                          int previousIndex,
-                          int? currentIndex,
-                          CardSwiperDirection direction,
-                        ) {
-                          vm.swipcard++;
-                          consolePrint('swipedCardsCount ${vm.swipcard}');
-                          return true;
-                        },
-                        numberOfCardsDisplayed:
-                            vm.meetlist.length < 2 ? vm.meetlist.length : 2,
+                        onSwipe:
+                            (
+                              int previousIndex,
+                              int? currentIndex,
+                              CardSwiperDirection direction,
+                            ) {
+                              vm.swipcard++;
+                              consolePrint('swipedCardsCount ${vm.swipcard}');
+                              return true;
+                            },
+                        numberOfCardsDisplayed: vm.meetlist.length < 2
+                            ? vm.meetlist.length
+                            : 2,
                         isLoop: false,
                         cardsCount: vm.meetlist.length,
-                        cardBuilder: (
-                          context,
-                          index,
-                          percentThresholdX,
-                          percentThresholdY,
-                        ) {
-                          final meeting = vm.meetlist[index];
-                          final meetingDuration = int.parse(
-                            meeting.duration,
-                          );
-                          final difference = meeting.scheduleDateTime
-                              .difference(DateTime.now());
-                          final isNextMeeting = (difference.inMinutes <= 5 &&
-                                  difference.inMinutes >= 0) ||
-                              (difference.inMinutes < 0 &&
-                                  difference.inMinutes >= -meetingDuration);
-                          final date = DateFormat(
-                            'EEE, MMM dd',
-                          ).format(meeting.scheduleDateTime);
-                          final starttime = DateFormat(
-                            'h:mm a',
-                          ).format(meeting.scheduleDateTime);
-                          final endtime = DateFormat('h:mm a').format(
-                            meeting.scheduleDateTime.add(
-                              Duration(
-                                minutes: int.parse(meeting.duration),
-                              ),
-                            ),
-                          );
+                        cardBuilder:
+                            (
+                              context,
+                              index,
+                              percentThresholdX,
+                              percentThresholdY,
+                            ) {
+                              final meeting = vm.meetlist[index];
+                              final meetingDuration = int.parse(
+                                meeting.duration,
+                              );
+                              final difference = meeting.scheduleDateTime
+                                  .difference(DateTime.now());
+                              final isNextMeeting =
+                                  (difference.inMinutes <= 5 &&
+                                      difference.inMinutes >= 0) ||
+                                  (difference.inMinutes < 0 &&
+                                      difference.inMinutes >= -meetingDuration);
+                              final date = DateFormat(
+                                'EEE, MMM dd',
+                              ).format(meeting.scheduleDateTime);
+                              final starttime = DateFormat(
+                                'h:mm a',
+                              ).format(meeting.scheduleDateTime);
+                              final endtime = DateFormat('h:mm a').format(
+                                meeting.scheduleDateTime.add(
+                                  Duration(
+                                    minutes: int.parse(meeting.duration),
+                                  ),
+                                ),
+                              );
 
-                          return _buildModernMeetingCard(
-                            isNextMeeting: isNextMeeting,
-                            date: date,
-                            meeting: meeting,
-                            stuname: stuname,
-                            context: context,
-                            starttime: starttime,
-                            endtime: endtime,
-                          );
-                        },
+                              return _buildModernMeetingCard(
+                                isNextMeeting: isNextMeeting,
+                                date: date,
+                                meeting: meeting,
+                                stuname: stuname,
+                                context: context,
+                                starttime: starttime,
+                                endtime: endtime,
+                              );
+                            },
                       ),
                     ),
                   ),
@@ -1425,8 +1422,9 @@ class _HorizontalZoomMeetingsState extends State<HorizontalZoomMeetings> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color:
-                          isNextMeeting ? Colors.white : Colors.grey.shade900,
+                      color: isNextMeeting
+                          ? Colors.white
+                          : Colors.grey.shade900,
                       height: 1.2,
                     ),
                     maxLines: 2,

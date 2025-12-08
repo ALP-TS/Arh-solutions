@@ -1,16 +1,16 @@
-import 'package:b_soft_appliction/app/config/routes/route_name.dart';
-import 'package:b_soft_appliction/presentation/common/view/signupform.dart';
+import 'package:arh_solution_app/app/config/routes/route_name.dart';
+import 'package:arh_solution_app/presentation/common/view/signupform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/core/helpers/buttonhelper.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
-import 'package:b_soft_appliction/presentation/common/viewmodel/loginvm.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/core/helpers/buttonhelper.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
+import 'package:arh_solution_app/presentation/common/viewmodel/loginvm.dart';
 
 import '../../../../../app/config/theme/text.dart';
 
 class Loginform extends StatelessWidget {
- Loginform({super.key, required this.loginVM});
+  Loginform({super.key, required this.loginVM});
 
   final LoginVM loginVM;
 
@@ -106,7 +106,7 @@ class Loginform extends StatelessWidget {
                 Text("no_account".tr),
                 TextButton(
                   onPressed: () {
-                   Get.to(() => FormView());
+                    Get.to(() => FormView());
 
                     print('Sign up pressed');
                   },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class OfficeWebView extends StatefulWidget {

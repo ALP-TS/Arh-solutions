@@ -2,18 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
 
 import '../../../app/Di/dimensions.dart';
 
 class CustomFlutterErrorWidget extends StatelessWidget {
   final FlutterErrorDetails? errorDetails;
-  const CustomFlutterErrorWidget({
-    super.key,
-    this.errorDetails,
-  });
+  const CustomFlutterErrorWidget({super.key, this.errorDetails});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +25,11 @@ class CustomFlutterErrorWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 AppTextHelper.subHead(
-                    text: 'went_wrong'.tr,
-                    textAlign: TextAlign.center,
-                    fontWeight: FontWeight.bold,
-                    fcolor: AppColors.primary),
+                  text: 'went_wrong'.tr,
+                  textAlign: TextAlign.center,
+                  fontWeight: FontWeight.bold,
+                  fcolor: AppColors.primary,
+                ),
                 SvgPicture.asset(
                   height: Di.screenWidth * 0.75,
                   AppImages.errorimg,
@@ -39,9 +37,11 @@ class CustomFlutterErrorWidget extends StatelessWidget {
                 // const SizedBox(height: 20.0),
                 const SizedBox(height: 12.0),
                 AppTextHelper.caption(
-                    textAlign: TextAlign.center, text: 'went_wrong_desc'.tr),
+                  textAlign: TextAlign.center,
+                  text: 'went_wrong_desc'.tr,
+                ),
                 const SizedBox(height: 30.0),
-//?======> Show error details only in debug mode (kDebugMode is Flutter's flag)
+                //?======> Show error details only in debug mode (kDebugMode is Flutter's flag)
                 if (kDebugMode && errorDetails != null) ...[
                   const SizedBox(height: 20.0),
                   const Text(
@@ -75,5 +75,3 @@ class CustomFlutterErrorWidget extends StatelessWidget {
 }
 
 // Placeholder Home Page - Replace with your actual home screen implementation
-
-

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/presentation/common/viewmodel/splashvm.dart';
-import 'package:b_soft_appliction/presentation/settings/viewmodel/profilevm.dart';
+import 'package:arh_solution_app/presentation/common/viewmodel/splashvm.dart';
+import 'package:arh_solution_app/presentation/settings/viewmodel/profilevm.dart';
 
 import '../../shared/viewmodel/shorebird_viewmodel.dart';
 

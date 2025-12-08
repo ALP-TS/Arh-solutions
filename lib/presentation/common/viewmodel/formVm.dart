@@ -1,10 +1,10 @@
-import 'package:b_soft_appliction/app/config/routes/route_name.dart';
-import 'package:b_soft_appliction/domain/models/signupResponse.dart';
-import 'package:b_soft_appliction/presentation/common/view/login/loginscreen.dart';
+import 'package:arh_solution_app/app/config/routes/route_name.dart';
+import 'package:arh_solution_app/domain/models/signupResponse.dart';
+import 'package:arh_solution_app/presentation/common/view/login/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/presentation/common/viewmodel/sign_upVm.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
+import 'package:arh_solution_app/presentation/common/viewmodel/sign_upVm.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
 
 class FormVM extends GetxController {
   final formKey = GlobalKey<FormState>();

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
 
 class AnimatedSwitch extends StatefulWidget {
   final bool isShopDetailsSelected;
   final List<String> tab;
   final Function(int) onTabChange;
-  const AnimatedSwitch(
-      {super.key,
-      required this.isShopDetailsSelected,
-      required this.onTabChange,
-      required this.tab});
+  const AnimatedSwitch({
+    super.key,
+    required this.isShopDetailsSelected,
+    required this.onTabChange,
+    required this.tab,
+  });
 
   @override
   _AnimatedSwitchState createState() => _AnimatedSwitchState();
@@ -58,8 +59,9 @@ class _AnimatedSwitchState extends State<AnimatedSwitch> {
                   height: containerHeight,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.horizontal(left: Radius.circular(15)),
+                    borderRadius: BorderRadius.horizontal(
+                      left: Radius.circular(15),
+                    ),
                     border: Border.all(color: AppColors.primary),
                   ),
                   child: Text(
@@ -85,8 +87,9 @@ class _AnimatedSwitchState extends State<AnimatedSwitch> {
                   height: containerHeight,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.horizontal(right: Radius.circular(15)),
+                    borderRadius: BorderRadius.horizontal(
+                      right: Radius.circular(15),
+                    ),
                     border: Border.all(color: AppColors.primary),
                   ),
                   child: Text(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 
 import '../../../../app/Di/dimensions.dart';
 import '../../viewmodel/examlistvm.dart';
@@ -45,19 +45,22 @@ class Examlist extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AppTextHelper.subHead(
-                              text: 'Track your progress',
-                              fcolor: Colors.white),
+                            text: 'Track your progress',
+                            fcolor: Colors.white,
+                          ),
                           const SizedBox(height: 8),
                           SizedBox(
                             height: 38,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                _buildFilterChip('All'),
-                                _buildFilterChip('Upcoming'),
-                                _buildFilterChip('Completed'),
-                                _buildFilterChip('Missed'),
-                              ],
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: [
+                                  _buildFilterChip('All'),
+                                  _buildFilterChip('Upcoming'),
+                                  _buildFilterChip('Completed'),
+                                  _buildFilterChip('Missed'),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -68,32 +71,33 @@ class Examlist extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: Di.screenWidth * 0.02),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: Di.screenWidth * 0.02,
+                  ),
                   child: AppTextHelper.caption(
-                      text: '${examlistVM.examlist.length} exams found',
-                      fcolor: const Color(0xFF6B7280)),
+                    text: '${examlistVM.examlist.length} exams found',
+                    fcolor: const Color(0xFF6B7280),
+                  ),
                 ),
               ),
               SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    final exam = examlistVM.examlist[index];
-                    return Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: Di.screenWidth * 0.02),
-                      child: (examlistVM.activeFilter.value ==
-                              examlistVM.getexamstatusbyfilter(exam.button))
-                          ? ExamCard(
-                              exam: exam,
-                              onTap: () => examlistVM.navigation(
-                                  exam.button, exam.examId),
-                            )
-                          : const SizedBox.shrink(),
-                    );
-                  },
-                  childCount: examlistVM.examlist.length,
-                ),
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final exam = examlistVM.examlist[index];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: Di.screenWidth * 0.02,
+                    ),
+                    child:
+                        (examlistVM.activeFilter.value ==
+                            examlistVM.getexamstatusbyfilter(exam.button))
+                        ? ExamCard(
+                            exam: exam,
+                            onTap: () =>
+                                examlistVM.navigation(exam.button, exam.examId),
+                          )
+                        : const SizedBox.shrink(),
+                  );
+                }, childCount: examlistVM.examlist.length),
               ),
             ],
           ),
@@ -119,8 +123,9 @@ class Examlist extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color:
-                    isSelected ? Colors.white : Colors.white.withOpacity(0.5),
+                color: isSelected
+                    ? Colors.white
+                    : Colors.white.withOpacity(0.5),
                 width: 1.5,
               ),
               gradient: isSelected

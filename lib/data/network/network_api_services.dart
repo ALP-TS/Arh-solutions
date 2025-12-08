@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/data/app_exceptions.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/data/app_exceptions.dart';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:b_soft_appliction/data/network/base_api_services.dart';
+import 'package:arh_solution_app/data/network/base_api_services.dart';
 
 import '../../core/helpers/dialougehelper.dart';
 
@@ -15,8 +15,9 @@ class NetworkApiServices extends BaseApiServices {
     consolePrint('Get Api Call Started with url=========>', url);
     dynamic responseJson;
     try {
-      final response =
-          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
+      final response = await http
+          .get(Uri.parse(url))
+          .timeout(const Duration(seconds: 10));
       responseJson = returnResponse(response);
     } on SocketException {
       throw InternetException('');
@@ -44,8 +45,10 @@ class NetworkApiServices extends BaseApiServices {
   }
 
   dynamic returnResponse(http.Response response) {
-    consolePrint('Api response got with status code =========>',
-        response.statusCode.toString());
+    consolePrint(
+      'Api response got with status code =========>',
+      response.statusCode.toString(),
+    );
     switch (response.statusCode) {
       case 200:
         consolePrint('Api response is =========>', response.body);
@@ -63,7 +66,8 @@ class NetworkApiServices extends BaseApiServices {
         throw InvalidurlException(response.body.toString());
       default:
         throw FetchDataException(
-            'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+          'Error occured while Communication with Server with StatusCode : ${response.statusCode}',
+        );
     }
   }
 }

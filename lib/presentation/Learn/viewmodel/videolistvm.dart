@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/domain/repository/studymaterialrepo.dart';
+import 'package:arh_solution_app/domain/repository/studymaterialrepo.dart';
 
 import '../../../core/utils/debuprint.dart';
 import '../../../domain/models/videolist_model.dart';
@@ -12,9 +12,7 @@ class VideolistVM extends GetxController {
   void onInit() {
     super.onInit();
     getVideolist(topicId);
-    consolePrint(
-      '==================> Video Controller Initialized',
-    );
+    consolePrint('==================> Video Controller Initialized');
   }
 
   final api = Studymaterialrepo();

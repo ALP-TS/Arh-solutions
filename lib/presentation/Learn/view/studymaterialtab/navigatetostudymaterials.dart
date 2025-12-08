@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/helpers/appbarhelper.dart';
+import 'package:arh_solution_app/core/helpers/appbarhelper.dart';
 
 import '../../../../app/config/routes/route_name.dart';
 import '../../../../app/config/theme/colors.dart';
@@ -77,9 +77,7 @@ class ContentNavigationScreen extends StatelessWidget {
     return Card(
       elevation: 4,
       shadowColor: AppColors.grey.withOpacity(0.3),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(15),
@@ -87,10 +85,7 @@ class ContentNavigationScreen extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             gradient: LinearGradient(
-              colors: [
-                color.withOpacity(0.1),
-                color.withOpacity(0.05),
-              ],
+              colors: [color.withOpacity(0.1), color.withOpacity(0.05)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -106,11 +101,7 @@ class ContentNavigationScreen extends StatelessWidget {
                     color: color,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Icon(
-                    icon,
-                    color: AppColors.white,
-                    size: 30,
-                  ),
+                  child: Icon(icon, color: AppColors.white, size: 30),
                 ),
                 const SizedBox(width: 20),
                 Expanded(
@@ -132,11 +123,7 @@ class ContentNavigationScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: color,
-                  size: 20,
-                ),
+                Icon(Icons.arrow_forward_ios, color: color, size: 20),
               ],
             ),
           ),

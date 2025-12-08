@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:b_soft_appliction/app/config/theme/text.dart';
+// import 'package:arh_solution_app/app/config/theme/text.dart';
 
 // import '../../../../../app/config/theme/colors.dart';
 // import '../../../../../domain/models/resultdata_model.dart';
@@ -73,7 +73,7 @@
 //   }
 // }
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/app/config/theme/text.dart';
+import 'package:arh_solution_app/app/config/theme/text.dart';
 import '../../../../../app/config/theme/colors.dart';
 import '../../../../../domain/models/resultdata_model.dart';
 
@@ -95,7 +95,7 @@ class Resultitem extends StatelessWidget {
             blurRadius: 16,
             spreadRadius: 1,
             offset: const Offset(0, 4),
-          )
+          ),
         ],
       ),
       child: ClipRRect(
@@ -110,36 +110,41 @@ class Resultitem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                    if (resultModel.yourAns == 'Skip')
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.yellow,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            // Icon(
-                            //   Icons.verified_rounded,
-                            //   color: AppColors.success,
-                            //   size: 18,
-                            // ),
-                            const SizedBox(width: 8),
-                            Text(
-                              resultModel.yourAns,
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      if (resultModel.yourAns == 'Skip')
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.yellow,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              // Icon(
+                              //   Icons.verified_rounded,
+                              //   color: AppColors.success,
+                              //   size: 18,
+                              // ),
+                              const SizedBox(width: 8),
+                              Text(
+                                resultModel.yourAns,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                  ]),
+                    ],
+                  ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -191,30 +196,42 @@ class Resultitem extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      _buildOptionTile('A', resultModel.optionA,
-                          resultModel.currectAnwser, resultModel.yourAns),
-                      const SizedBox(
-                        height: 10,
+                      _buildOptionTile(
+                        'A',
+                        resultModel.optionA,
+                        resultModel.currectAnwser,
+                        resultModel.yourAns,
                       ),
-                      _buildOptionTile('B', resultModel.optionB,
-                          resultModel.currectAnwser, resultModel.yourAns),
-                      const SizedBox(
-                        height: 10,
+                      const SizedBox(height: 10),
+                      _buildOptionTile(
+                        'B',
+                        resultModel.optionB,
+                        resultModel.currectAnwser,
+                        resultModel.yourAns,
                       ),
-                      _buildOptionTile('C', resultModel.optionC,
-                          resultModel.currectAnwser, resultModel.yourAns),
-                      const SizedBox(
-                        height: 10,
+                      const SizedBox(height: 10),
+                      _buildOptionTile(
+                        'C',
+                        resultModel.optionC,
+                        resultModel.currectAnwser,
+                        resultModel.yourAns,
                       ),
-                      _buildOptionTile('D', resultModel.optionD,
-                          resultModel.currectAnwser, resultModel.yourAns),
+                      const SizedBox(height: 10),
+                      _buildOptionTile(
+                        'D',
+                        resultModel.optionD,
+                        resultModel.currectAnwser,
+                        resultModel.yourAns,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 16),
                   Container(
                     width: double.infinity,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.success.withOpacity(0.08),
                       borderRadius: BorderRadius.circular(8),
@@ -252,7 +269,11 @@ class Resultitem extends StatelessWidget {
   }
 
   Widget _buildOptionTile(
-      String optionLetter, String optionText, correctans, youans) {
+    String optionLetter,
+    String optionText,
+    correctans,
+    youans,
+  ) {
     final isWrong = optionText == youans && optionText != correctans;
 
     return AnimatedContainer(
@@ -286,7 +307,7 @@ class Resultitem extends StatelessWidget {
                           color: AppColors.error.withOpacity(0.3),
                           blurRadius: 4,
                           offset: const Offset(0, 2),
-                        )
+                        ),
                       ]
                     : null,
               ),

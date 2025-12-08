@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/domain/repository/examrepo.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/domain/repository/examrepo.dart';
 
 import '../../../app/config/routes/route_name.dart';
 import '../../../domain/models/examlist_model.dart';
@@ -58,18 +58,22 @@ class Examlistvm extends GetxController {
 
   Future<void> getExamslist() async {
     consolePrint(
-        '==================>In Exam VM (function getExamslist) Initialized');
+      '==================>In Exam VM (function getExamslist) Initialized',
+    );
     try {
       final response = await api.examslist();
       examlist.value = (response['data'] as List)
           .map((e) => ExamlistModel.fromJson(e))
           .toList();
     } catch (e) {
-      consolePrint('==================> Exam VM (function getExamslist) Error',
-          e.toString());
+      consolePrint(
+        '==================> Exam VM (function getExamslist) Error',
+        e.toString(),
+      );
     } finally {
       consolePrint(
-          '==================> Exam VM (function getExamslist) Completed');
+        '==================> Exam VM (function getExamslist) Completed',
+      );
     }
   }
 }

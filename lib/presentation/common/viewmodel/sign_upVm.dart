@@ -1,6 +1,6 @@
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/domain/models/signup_model.dart';
-import 'package:b_soft_appliction/domain/repository/signup_repo.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/domain/models/signup_model.dart';
+import 'package:arh_solution_app/domain/repository/signup_repo.dart';
 import 'package:get/get.dart';
 
 class SignUpvm extends GetxController {
@@ -42,7 +42,8 @@ class SignUpvm extends GetxController {
             .toList();
 
         consolePrint(
-            '====================== Courses Loaded: ${coursedata.length}');
+          '====================== Courses Loaded: ${coursedata.length}',
+        );
       } else {
         consolePrint('====================== No course data found');
       }

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/core/utils/debuprint.dart';
-import 'package:b_soft_appliction/domain/repository/studymaterialrepo.dart';
+import 'package:arh_solution_app/core/utils/debuprint.dart';
+import 'package:arh_solution_app/domain/repository/studymaterialrepo.dart';
 
 import '../../../domain/models/notesdata_model.dart';
 

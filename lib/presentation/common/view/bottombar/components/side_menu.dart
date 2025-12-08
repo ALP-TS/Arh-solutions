@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
 import 'menu.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu(
-      {super.key,
-      required this.menu,
-      required this.press,
-      // required this.riveOnInit,
-      required this.selectedMenu});
+  const SideMenu({
+    super.key,
+    required this.menu,
+    required this.press,
+    // required this.riveOnInit,
+    required this.selectedMenu,
+  });
 
   final SideBarMenu menu;
   final VoidCallback press;

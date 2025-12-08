@@ -1,13 +1,13 @@
-import 'package:b_soft_appliction/app/config/routes/route_name.dart'
+import 'package:arh_solution_app/app/config/routes/route_name.dart'
     show RouteName;
-import 'package:b_soft_appliction/presentation/common/view/coursedetailpage/course_deatail_page.dart';
+import 'package:arh_solution_app/presentation/common/view/coursedetailpage/course_deatail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
-import 'package:b_soft_appliction/core/res/assets/images.dart';
-import 'package:b_soft_appliction/domain/models/courselist_model.dart';
-import 'package:b_soft_appliction/presentation/common/view/dashboard/src/tst.dart';
-import 'package:b_soft_appliction/presentation/common/view/signupform.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
+import 'package:arh_solution_app/core/res/assets/images.dart';
+import 'package:arh_solution_app/domain/models/courselist_model.dart';
+import 'package:arh_solution_app/presentation/common/view/dashboard/src/tst.dart';
+import 'package:arh_solution_app/presentation/common/view/signupform.dart';
 import 'package:shimmer/shimmer.dart'; // Add this to your pubspec.yaml
 
 import '../../../viewmodel/categoryvm.dart';
@@ -225,8 +225,10 @@ class CourseGrid extends StatelessWidget {
       },
       child: GestureDetector(
         onTap: () {
-          Get.toNamed(RouteName.coursedetailpage,
-          arguments: courseListModel.siteCourseId);
+          Get.toNamed(
+            RouteName.coursedetailpage,
+            arguments: courseListModel.siteCourseId,
+          );
         },
 
         child: Container(

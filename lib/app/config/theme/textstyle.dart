@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:b_soft_appliction/app/config/theme/colors.dart';
+import 'package:arh_solution_app/app/config/theme/colors.dart';
 
 import '../../Di/dimensions.dart';
 
@@ -7,7 +7,7 @@ import '../../Di/dimensions.dart';
 const String _fontFamily = 'Roboto';
 
 class AppTextStyles {
-//?============>Main Head
+  //?============>Main Head
   static TextStyle mainHeadstyle({
     required Color fcolor,
     required FontWeight fontWeight,
@@ -19,7 +19,7 @@ class AppTextStyles {
     );
   }
 
-//?=============>Sub Head
+  //?=============>Sub Head
   static TextStyle subHeadstyle({
     Color fcolor = AppColors.black,
     FontWeight fontWeight = FontWeight.normal,
@@ -31,7 +31,7 @@ class AppTextStyles {
     );
   }
 
-//?=============>Button
+  //?=============>Button
   static TextStyle button({
     Color fcolor = AppColors.black,
     FontWeight fontWeight = FontWeight.normal,
@@ -43,7 +43,7 @@ class AppTextStyles {
     );
   }
 
-//?=============>Caption
+  //?=============>Caption
   static TextStyle captionstyle({
     Color fcolor = AppColors.black,
     FontWeight fontWeight = FontWeight.normal,

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
-import 'package:b_soft_appliction/presentation/exam/viewmodel/examattendvm.dart';
+import 'package:arh_solution_app/presentation/exam/viewmodel/examattendvm.dart';
 
 import '../../../../../app/config/routes/route_name.dart';
 import '../../../../../app/config/theme/colors.dart';
 import 'examshimmer.dart';
 
 class ExamInstructions extends StatefulWidget {
-  const ExamInstructions({
-    super.key,
-  });
+  const ExamInstructions({super.key});
 
   @override
   ExamInstructionsState createState() => ExamInstructionsState();
@@ -60,114 +58,119 @@ class ExamInstructionsState extends State<ExamInstructions>
   Widget build(BuildContext context) {
     final examattendVm = Get.find<Examattendvm>();
     return PopScope(
-        canPop: false,
-        child: Obx(
-          () => examattendVm.isloading.value
-              ? const ExamScreenShimmer()
-              : Scaffold(
-                  backgroundColor: const Color(0xFFF8FAFF),
-                  body: CustomScrollView(
-                    slivers: [
-                      SliverAppBar(
-                        automaticallyImplyLeading: false,
-                        centerTitle: true,
-                        expandedHeight: 100,
-                        floating: false,
-                        pinned: true,
-                        flexibleSpace: FlexibleSpaceBar(
-                          background: Container(
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  AppColors.primary,
-                                  AppColors.lightsecondary,
-                                ],
-                              ),
-                            ),
-                            child: const Center(
-                              child: Icon(
-                                Icons.school_rounded,
-                                size: 60,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 16),
-                          child: AnimatedBuilder(
-                            animation: _controller,
-                            builder: (context, child) {
-                              return Transform.translate(
-                                offset: Offset(0, _slideAnimation.value),
-                                child: Opacity(
-                                  opacity: _fadeAnimation.value,
-                                  child: child,
-                                ),
-                              );
-                            },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Exam Summary Card
-                                _buildSummaryCard(
-                                    context,
-                                    examattendVm
-                                        .timeconvert(examattendVm
-                                            .examData.value!.totalTime)
-                                        .toString(),
-                                    examattendVm
-                                            .examData.value!.markPerQuestion ??
-                                        '',
-                                    examattendVm.questions.length.toString()),
-                                const SizedBox(height: 28),
-
-                                // Key Details Section
-                                _buildSectionTitle('Key Details'),
-                                const SizedBox(height: 16),
-                                _buildDetailGrid(
-                                    examattendVm.questions.length.toString(),
-                                    examattendVm
-                                        .examData.value!.markPerQuestion,
-                                    examattendVm.examData.value!.minusMark,
-                                    examattendVm
-                                        .timeconvert(examattendVm
-                                            .examData.value!.totalTime)
-                                        .toString()),
-                                const SizedBox(height: 28),
-
-                                // Instructions Section
-                                _buildSectionTitle('Important Instructions'),
-                                const SizedBox(height: 16),
-                                _buildInstructionList(),
-                                const SizedBox(height: 24),
-                                // Terms Checkbox
-                                _buildTermsCheckbox(),
-                                const SizedBox(height: 32),
-
-                                // Start Button
-                                _buildStartButton(context),
+      canPop: false,
+      child: Obx(
+        () => examattendVm.isloading.value
+            ? const ExamScreenShimmer()
+            : Scaffold(
+                backgroundColor: const Color(0xFFF8FAFF),
+                body: CustomScrollView(
+                  slivers: [
+                    SliverAppBar(
+                      automaticallyImplyLeading: false,
+                      centerTitle: true,
+                      expandedHeight: 100,
+                      floating: false,
+                      pinned: true,
+                      flexibleSpace: FlexibleSpaceBar(
+                        background: Container(
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                AppColors.primary,
+                                AppColors.lightsecondary,
                               ],
                             ),
                           ),
+                          child: const Center(
+                            child: Icon(
+                              Icons.school_rounded,
+                              size: 60,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 16,
+                        ),
+                        child: AnimatedBuilder(
+                          animation: _controller,
+                          builder: (context, child) {
+                            return Transform.translate(
+                              offset: Offset(0, _slideAnimation.value),
+                              child: Opacity(
+                                opacity: _fadeAnimation.value,
+                                child: child,
+                              ),
+                            );
+                          },
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Exam Summary Card
+                              _buildSummaryCard(
+                                context,
+                                examattendVm
+                                    .timeconvert(
+                                      examattendVm.examData.value!.totalTime,
+                                    )
+                                    .toString(),
+                                examattendVm.examData.value!.markPerQuestion ??
+                                    '',
+                                examattendVm.questions.length.toString(),
+                              ),
+                              const SizedBox(height: 28),
+
+                              // Key Details Section
+                              _buildSectionTitle('Key Details'),
+                              const SizedBox(height: 16),
+                              _buildDetailGrid(
+                                examattendVm.questions.length.toString(),
+                                examattendVm.examData.value!.markPerQuestion,
+                                examattendVm.examData.value!.minusMark,
+                                examattendVm
+                                    .timeconvert(
+                                      examattendVm.examData.value!.totalTime,
+                                    )
+                                    .toString(),
+                              ),
+                              const SizedBox(height: 28),
+
+                              // Instructions Section
+                              _buildSectionTitle('Important Instructions'),
+                              const SizedBox(height: 16),
+                              _buildInstructionList(),
+                              const SizedBox(height: 24),
+                              // Terms Checkbox
+                              _buildTermsCheckbox(),
+                              const SizedBox(height: 32),
+
+                              // Start Button
+                              _buildStartButton(context),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-        ));
+              ),
+      ),
+    );
   }
 
   Widget _buildTermsCheckbox() {
     return Theme(
-      data: Theme.of(context).copyWith(
-        unselectedWidgetColor: Colors.grey.shade400,
-      ),
+      data: Theme.of(
+        context,
+      ).copyWith(unselectedWidgetColor: Colors.grey.shade400),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -215,10 +218,7 @@ class ExamInstructionsState extends State<ExamInstructions>
                   const SizedBox(height: 4),
                   Text(
                     'By checking this box, you confirm you have read and understood all exam guidelines',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey.shade600,
-                    ),
+                    style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
                   ),
                 ],
               ),
@@ -229,8 +229,12 @@ class ExamInstructionsState extends State<ExamInstructions>
     );
   }
 
-  Widget _buildSummaryCard(BuildContext context, String examDuration,
-      String markperquestion, String totalQuestion) {
+  Widget _buildSummaryCard(
+    BuildContext context,
+    String examDuration,
+    String markperquestion,
+    String totalQuestion,
+  ) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -249,30 +253,26 @@ class ExamInstructionsState extends State<ExamInstructions>
           Text(
             'Ready to begin your exam?',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: const Color(0xFF2D3748),
-                ),
+              fontWeight: FontWeight.w600,
+              color: const Color(0xFF2D3748),
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             'Please review all instructions carefully before starting',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey.shade600,
-              fontSize: 14,
-            ),
+            style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
           ),
           const SizedBox(height: 16),
-          Container(
-            height: 1,
-            color: Colors.grey.shade200,
-          ),
+          Container(height: 1, color: Colors.grey.shade200),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildSummaryItem('Total Score',
-                  '${int.parse(totalQuestion) * int.parse(markperquestion)}'),
+              _buildSummaryItem(
+                'Total Score',
+                '${int.parse(totalQuestion) * int.parse(markperquestion)}',
+              ),
               _buildSummaryItem('Duration', '$examDuration min'),
               _buildSummaryItem('Questions', totalQuestion),
             ],
@@ -296,18 +296,13 @@ class ExamInstructionsState extends State<ExamInstructions>
         const SizedBox(height: 4),
         Text(
           title,
-          style: TextStyle(
-            fontSize: 12,
-            color: Colors.grey.shade600,
-          ),
+          style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
         ),
       ],
     );
   }
 
-  Widget _buildSectionTitle(
-    String title,
-  ) {
+  Widget _buildSectionTitle(String title) {
     return Text(
       title,
       style: const TextStyle(
@@ -318,8 +313,12 @@ class ExamInstructionsState extends State<ExamInstructions>
     );
   }
 
-  Widget _buildDetailGrid(String totalQus, String markperquestion, negativemark,
-      String examDuration) {
+  Widget _buildDetailGrid(
+    String totalQus,
+    String markperquestion,
+    negativemark,
+    String examDuration,
+  ) {
     return GridView.count(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -357,7 +356,11 @@ class ExamInstructionsState extends State<ExamInstructions>
   }
 
   Widget _buildDetailTile(
-      IconData icon, String title, String value, Color color) {
+    IconData icon,
+    String title,
+    String value,
+    Color color,
+  ) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
@@ -379,11 +382,7 @@ class ExamInstructionsState extends State<ExamInstructions>
               color: color.withOpacity(0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              icon,
-              color: color,
-              size: 20,
-            ),
+            child: Icon(icon, color: color, size: 20),
           ),
           const SizedBox(width: 12),
           Column(
@@ -392,10 +391,7 @@ class ExamInstructionsState extends State<ExamInstructions>
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey.shade600,
-                ),
+                style: TextStyle(fontSize: 12, color: Colors.grey.shade600),
               ),
               Text(
                 value,
@@ -430,11 +426,14 @@ class ExamInstructionsState extends State<ExamInstructions>
         children: [
           _buildInstructionItem('All questions are mandatory to attempt.'),
           _buildInstructionItem(
-              'There will be negative marking for wrong answers.'),
+            'There will be negative marking for wrong answers.',
+          ),
           _buildInstructionItem(
-              'Use the navigation buttons to move between questions.'),
+            'Use the navigation buttons to move between questions.',
+          ),
           _buildInstructionItem(
-              'Timer will be shown at the top of the screen.'),
+            'Timer will be shown at the top of the screen.',
+          ),
           _buildInstructionItem('Don\'t  close or switch the app during exam.'),
           _buildInstructionItem('Submit your answers before time runs out.'),
         ],
@@ -486,8 +485,9 @@ class ExamInstructionsState extends State<ExamInstructions>
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          backgroundColor:
-              _termsAccepted ? AppColors.primary : Colors.grey.shade400,
+          backgroundColor: _termsAccepted
+              ? AppColors.primary
+              : Colors.grey.shade400,
           elevation: 0,
           shadowColor: Colors.transparent,
         ),
