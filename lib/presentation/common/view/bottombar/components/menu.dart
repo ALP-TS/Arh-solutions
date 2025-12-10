@@ -27,12 +27,12 @@ class SideBarMenu {
 }
 
 List<SideBarMenu> sidebarMenus = [
-  SideBarMenu(
-    title: "Home",
-    icon: HugeIcons.strokeRoundedHome10,
-    route: () => Get.toNamed(RouteName.navbar),
-    // RouteName.navbar,
-  ),
+  // SideBarMenu(
+  //   title: "Home",
+  //   icon: HugeIcons.strokeRoundedHome10,
+  //   route: () => {Get.toNamed(RouteName.navbar)},
+  //   // RouteName.navbar,
+  // ),
   SideBarMenu(
     title: "Profile",
     icon: HugeIcons.strokeRoundedUser,

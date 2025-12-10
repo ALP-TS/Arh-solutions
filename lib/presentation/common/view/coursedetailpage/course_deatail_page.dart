@@ -65,16 +65,16 @@ class CourseDetailsPage extends StatelessWidget {
         icon: const Icon(Icons.arrow_back, color: Colors.white),
         onPressed: () => Get.back(),
       ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.share, color: Colors.white),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(Icons.favorite_border, color: Colors.white),
-          onPressed: () {},
-        ),
-      ],
+      // actions: [
+      //   IconButton(
+      //     icon: const Icon(Icons.share, color: Colors.white),
+      //     onPressed: () {},
+      //   ),
+      //   IconButton(
+      //     icon: const Icon(Icons.favorite_border, color: Colors.white),
+      //     onPressed: () {},
+      //   ),
+      // ],
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,
@@ -111,25 +111,25 @@ class CourseDetailsPage extends StatelessWidget {
                     horizontal: 12,
                     vertical: 6,
                   ),
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Icon(Icons.star, size: 16, color: Colors.white),
-                      SizedBox(width: 4),
-                      Text(
-                        'Featured',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ],
-                  ),
+                  // decoration: BoxDecoration(
+                  //   color: Colors.amber,
+                  //   borderRadius: BorderRadius.circular(20),
+                  // ),
+                  // child: const Row(
+                  //   mainAxisSize: MainAxisSize.min,
+                  //   // children: [
+                  //   //   Icon(Icons.star, size: 16, color: Colors.white),
+                  //   //   SizedBox(width: 4),
+                  //   //   // Text(
+                  //   //   //   'Featured',
+                  //   //   //   style: TextStyle(
+                  //   //   //     color: Colors.white,
+                  //   //   //     fontWeight: FontWeight.bold,
+                  //   //   //     fontSize: 12,
+                  //   //   //   ),
+                  //   //   // ),
+                  //   // ],
+                  // ),
                 ),
               ),
           ],

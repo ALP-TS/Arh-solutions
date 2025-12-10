@@ -1,3 +1,4 @@
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:arh_solution_app/core/utils/debuprint.dart';
 import 'package:arh_solution_app/domain/repository/examrepo.dart';
@@ -48,7 +49,12 @@ class Examlistvm extends GetxController {
 
         break;
       case 'Missed':
-        // Get.toNamed(RouteName.exampage);
+      Fluttertoast.showToast(
+        msg: "You missed this exam.",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+      );
+      break;
 
         break;
       default:

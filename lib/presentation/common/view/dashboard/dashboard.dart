@@ -841,6 +841,7 @@ import 'package:arh_solution_app/core/utils/debuprint.dart';
 import 'package:arh_solution_app/domain/models/zoommeetlist_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:intl/intl.dart';
@@ -1580,7 +1581,13 @@ class _HorizontalZoomMeetingsState extends State<HorizontalZoomMeetings> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(16),
                         onTap: () {
-                          // Your join logic here
+                          Fluttertoast.showToast(
+                            msg: isNextMeeting
+                                ? 'Joining session...'
+                                : 'The meeting has not started yet.',
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                          );
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

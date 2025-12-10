@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:arh_solution_app/core/utils/debuprint.dart';
 import 'package:arh_solution_app/data/app_exceptions.dart';
@@ -7,7 +7,7 @@ import 'dart:io';
 
 import 'package:arh_solution_app/data/network/base_api_services.dart';
 
-import '../../core/helpers/dialougehelper.dart';
+
 
 class NetworkApiServices extends BaseApiServices {
   @override

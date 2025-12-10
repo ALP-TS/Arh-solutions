@@ -1,4 +1,13 @@
 import 'package:arh_solution_app/presentation/common/view/coursedetailpage/course_deatail_page.dart';
+import 'package:arh_solution_app/presentation/exam/bindings/examattendbdng.dart';
+import 'package:arh_solution_app/presentation/exam/bindings/examlistbdng.dart';
+import 'package:arh_solution_app/presentation/exam/bindings/examresultbdng.dart';
+import 'package:arh_solution_app/presentation/exam/view/examattend/examattend.dart';
+import 'package:arh_solution_app/presentation/exam/view/examattend/src/examinstruction.dart';
+import 'package:arh_solution_app/presentation/exam/view/examattend/src/examtimeout.dart';
+import 'package:arh_solution_app/presentation/exam/view/examattend/src/examviolation.dart';
+import 'package:arh_solution_app/presentation/exam/view/examlist/examlist.dart';
+import 'package:arh_solution_app/presentation/exam/view/examsolution/examsolution.dart';
 import 'package:get/get.dart';
 import 'package:arh_solution_app/app/config/routes/route_name.dart';
 import 'package:arh_solution_app/presentation/common/view/dashboard/dashboard.dart';
@@ -16,28 +25,23 @@ import '../../../presentation/Learn/view/videos/videoplayer/Videolayer_headset.d
 import '../../../presentation/common/bindings/catorybdng.dart';
 import '../../../presentation/common/bindings/splashscreenbdng.dart';
 import '../../../presentation/common/bindings/zoombdng.dart';
-import '../../../presentation/exam/bindings/examresultbdng.dart';
-import '../../../presentation/exam/view/examsolution/examsolution.dart';
 import '../../../presentation/settings/bndings/profilebdng.dart';
 import '../../../presentation/settings/view/settingspageui.dart';
 import 'routig_widget.dart';
 //*====================> Screen Imports
 import 'package:arh_solution_app/presentation/common/view/welomescreen/welcomesreen.dart';
-import '../../../presentation/exam/view/examattend/src/examinstruction.dart';
-import '../../../presentation/exam/view/examattend/src/examviolation.dart';
-import 'package:arh_solution_app/presentation/exam/view/examlist/examlist.dart';
+
 import '../../../presentation/common/view/slashscreen/splashscreen.dart';
-import '../../../presentation/exam/view/examattend/src/examtimeout.dart';
-import '../../../presentation/exam/view/examattend/examattend.dart';
+
 import '../../../presentation/common/view/bottombar/bottombar.dart';
 import '../../../presentation/Learn/view/subjects/subjectlist.dart';
 import '../../../presentation/common/view/login/loginscreen.dart';
 import '../../../presentation/Learn/view/topic/topiclist.dart';
 
 //*====================> Binding Imports
-import '../../../presentation/exam/bindings/examattendbdng.dart';
+
 import '../../../presentation/Learn/bindings/subjectbdng.dart';
-import '../../../presentation/exam/bindings/examlistbdng.dart';
+
 import '../../../presentation/common/bindings/loginbdng.dart';
 import '../../../presentation/Learn/bindings/topicbdng.dart';
 
@@ -65,7 +69,7 @@ class AppRoutes {
     ]),
     getPage(RouteName.sublist, const SubjectList(), [Subjectbdng()]),
     getPage(RouteName.topiclist, const TopicList(), [Topicbdng()]),
-    //*====================> Exam Routes
+    //*====================>  Routes
     getPage(RouteName.examinstruction, const ExamInstructions(), [
       Examattendbdng(),
     ]),

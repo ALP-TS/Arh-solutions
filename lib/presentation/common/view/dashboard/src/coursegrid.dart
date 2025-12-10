@@ -111,7 +111,7 @@ class CourseGrid extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [AppColors.primary, AppColors.primary],
+            colors: [Colors.white,Colors.white],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -125,7 +125,7 @@ class CourseGrid extends StatelessWidget {
               Icon(
                 Icons.school_outlined,
                 size: 60,
-                color: Colors.grey.shade400,
+                color: const Color.fromARGB(255, 0, 0, 0),
               ),
               const SizedBox(height: 16),
               Text(
@@ -133,13 +133,13 @@ class CourseGrid extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Colors.grey.shade600,
+                  color: const Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
               const SizedBox(height: 8),
               Text(
                 'Try selecting a different category',
-                style: TextStyle(fontSize: 13, color: Colors.grey.shade500),
+                style: TextStyle(fontSize: 13, color: const Color.fromARGB(255, 0, 0, 0)),
               ),
             ],
           ),
