@@ -20,7 +20,7 @@ class Languages extends Translations {
           'forgot_password': 'Forgot Password?',
           'no_account': 'Don\'t have an account?',
           'signup': 'Sign Up',
-          'wel_scre_title':'Start Your Tech Journey With B-Soft ',
+          'wel_scre_title':'Start Your Tech Journey With Arh solutions ',
           'wel_sce_des': 'Join our beginner-friendly courses and learn how to build apps, websites, and software with easy lessons designed specially for students...',
           'get_started':'Get Started',
           'Subjects':'Subjects',

@@ -1,4 +1,4 @@
-package com.example.arh_solution_app
+package com.alpts.arh_solution
 
 import io.flutter.embedding.android.FlutterActivity
 
