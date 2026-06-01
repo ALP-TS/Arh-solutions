@@ -17,7 +17,8 @@ class VideoListItem extends StatelessWidget {
     final videoVM = Get.find<VideolistVM>();
     // Parse the timestamp
     final dateTime = DateTime.fromMillisecondsSinceEpoch(
-        int.parse(videoData.dateTime.toString()) * 1000);
+      int.parse(videoData.dateTime.toString()) * 1000,
+    );
     final formattedDate = DateFormat('MMM d, y').format(dateTime);
 
     return Card(
@@ -25,8 +26,23 @@ class VideoListItem extends StatelessWidget {
       elevation: 2,
       child: InkWell(
         onTap: () async {
-          await videoVM.videoseen( videoData.videoId.toString());
-          Get.toNamed(RouteName.videoplayer,arguments: videoData.name);
+          await videoVM.videoseen(videoData.videoId);
+
+          final bool isYoutube = videoData.name.contains('youtu');
+
+          if (isYoutube) {
+            debugPrint('OPENING YOUTUBE PLAYER');
+            Get.toNamed(
+              RouteName.youtubeplayer,
+              arguments: videoData.name.trim(), // ✅ YouTube URL
+            );
+          } else {
+            debugPrint('OPENING NORMAL PLAYER');
+            Get.toNamed(
+              RouteName.videoplayer,
+              arguments: videoData.name.trim(), // normal video URL
+            );
+          }
           // Handle video tap
           // Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPlayerScreen(videoUrl: videoData['name'])));
         },
@@ -47,7 +63,11 @@ class VideoListItem extends StatelessWidget {
                           imageUrl: videoData.thumbnail!.trim(),
                           fit: BoxFit.cover,
                         )
-                      : const Icon(Icons.videocam, size: 50, color: Colors.grey),
+                      : const Icon(
+                          Icons.videocam,
+                          size: 50,
+                          color: Colors.grey,
+                        ),
                 ),
                 // Play button
                 const CircleAvatar(
@@ -78,31 +98,23 @@ class VideoListItem extends StatelessWidget {
                     children: [
                       Text(
                         formattedDate,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[600],
-                        ),
+                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                       ),
                       const SizedBox(width: 8),
                       Icon(
-                        videoData.pMode == 'public'
-                            ? Icons.public
-                            : Icons.lock,
+                        videoData.pMode == 'public' ? Icons.public : Icons.lock,
                         size: 14,
                         color: Colors.grey,
                       ),
                     ],
                   ),
                   // Description if available
-                  if (videoData.description!= null)
+                  if (videoData.description != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
                         videoData.description ?? '',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[700],
-                        ),
+                        style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),

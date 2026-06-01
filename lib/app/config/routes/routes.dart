@@ -1,3 +1,4 @@
+import 'package:arh_solution_app/presentation/Learn/view/videos/videoplayer/youtube_video_player.dart';
 import 'package:arh_solution_app/presentation/common/view/coursedetailpage/course_deatail_page.dart';
 import 'package:arh_solution_app/presentation/exam/bindings/examattendbdng.dart';
 import 'package:arh_solution_app/presentation/exam/bindings/examlistbdng.dart';
@@ -73,6 +74,7 @@ class AppRoutes {
     getPage(RouteName.examinstruction, const ExamInstructions(), [
       Examattendbdng(),
     ]),
+    getPage(RouteName.youtubeplayer, const YoutubeVideoPlayer(), []),
 
     getPage(RouteName.exampage, const ExamScreen(), []),
     getPage(RouteName.coursedetailpage, const CourseDetailsPage(), []),
@@ -83,6 +85,7 @@ class AppRoutes {
     getPage(RouteName.videoplayer, const HeadsetVideoPlayer(), [
       Videoplayerbdng(),
     ]),
+
     getPage(RouteName.studymaterialtab, const ContentNavigationScreen(), [
       Tabbarbdng(),
       Videobdng(),

@@ -20,6 +20,7 @@ class RouteName {
   static const String coursedetailpage = '/CourseDetailsPage';
   //*====================>
   static const String videoplayer = '/videoplayer';
+  static const String youtubeplayer = '/youtubeplayer';
   static const String studymaterialtab = '/studymaterialtab';
   static const String studymaterials = '/materials';
   static const String pdfview = '/pdfview';

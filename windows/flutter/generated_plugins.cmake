@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   connectivity_plus
+  flutter_inappwebview_windows
   media_kit_video
   permission_handler_windows
   rive_common
